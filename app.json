@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "tcc-toca-negocio",
-    "slug": "tcc-toca-negocio",
+    "name": "toca_o_negocio",
+    "slug": "toca_o_negocio",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "toca_o_negocio",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
