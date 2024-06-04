@@ -38,8 +38,9 @@ export default function SalesPayments({ customer }) {
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
+            pl={5}
         >
-            <Text>{numberForMoney(valueSales)}</Text>
+            <Text color={theme.colorLight}>{numberForMoney(valueSales)}</Text>
             <Pressable
                 px={4}
                 borderWidth={1}

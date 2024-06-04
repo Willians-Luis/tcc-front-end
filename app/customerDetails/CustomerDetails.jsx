@@ -33,11 +33,15 @@ export default function CustomerDetails() {
                 ? <Box flex={1} p={8} gap={16}>
                     <Container title="Cliente" icon="user">
                         <Box flexDirection="row" justifyContent="space-between" pb={4}>
-                            <Text>{data.nome}</Text>
-                            <Text>{data.telefone ? data.telefone : ""}</Text>
+                            <Text color={theme.colorLight}>
+                                {data.nome}
+                            </Text>
+                            <Text color={theme.colorLight}>
+                                {data.telefone ? data.telefone : ""}
+                            </Text>
                             <Box flexDirection="row" gap={20}>
-                                <Feather name="edit" size={24} color="black" />
-                                <AntDesign name="delete" size={24} color="black" />
+                                <Feather name="edit" size={20} color={theme.colorLight} />
+                                <AntDesign name="delete" size={20} color={theme.colorLight} />
                             </Box>
                         </Box>
                     </Container>

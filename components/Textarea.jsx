@@ -17,7 +17,7 @@ export function Textarea({ErrorMessage, ...rest}) {
                 $invalid-borderColor="red"
             >
                 <TextareaInput 
-                    color="#fff"
+                    color={theme.colorLight}
                     {...rest} 
                 />
             </GlueTextarea>

@@ -16,11 +16,14 @@ export default function ItemProductListSell({ product }) {
     return (
         <Card
             variant="elevated"
-            my="$1"
+            my={5}
             p={0}
             justifyContent="space-between"
             flexDirection="row"
             alignItems="center"
+            backgroundColor={product.backgroundColor}
+            borderWidth={1}
+            borderColor={theme.colorLight}
         >
             <Box width="$3/4" padding={8}>
                 <Box
@@ -28,10 +31,10 @@ export default function ItemProductListSell({ product }) {
                     alignItems="center"
                     justifyContent="space-between"
                 >
-                    <Text color={theme.black} fontWeight="bold">
+                    <Text color={theme.colorLight} fontWeight="bold">
                         {product.nome} {product?.tipo?.nome ? product.tipo.nome : ""}
                     </Text>
-                    <Text color={theme.black} fontWeight="bold">
+                    <Text color={theme.colorLight} fontWeight="bold">
                         {numberForMoney(product.valorVenda)}
                     </Text>
                 </Box>
@@ -40,15 +43,17 @@ export default function ItemProductListSell({ product }) {
                 onPress={handleProductClick}
                 height={40}
                 width={60}
-                backgroundColor={theme.colorDark}
                 justifyContent="center"
                 alignItems="center"
-                borderBottomRightRadius={8}
-                borderTopRightRadius={8}
+                backgroundColor={theme.backgroundColor}
+                borderBottomRightRadius={5}
+                borderTopRightRadius={5}
+                borderWidth={1}
+                borderColor={theme.colorLight}
                 $active-bg={theme.colorDark}
                 $active-bgColor={theme.colorLight}
             >
-                <Feather name="shopping-cart" size={30} color={theme.backgroundColor} />
+                <Feather name="shopping-cart" size={24} color={theme.colorLight} />
             </Pressable>
         </Card>
     )

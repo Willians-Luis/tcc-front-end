@@ -1,7 +1,6 @@
 import { Center, VStack, Box } from '@gluestack-ui/themed';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { useNavigation } from "@react-navigation/native";
 import { useSelector } from 'react-redux';
 import Button from '@/components/Button';
 import CategoryFilter from '@/components/CategoryFilter';
@@ -11,10 +10,24 @@ import Footer from '@/components/Footer';
 import theme from '@/style/theme';
 import { InputCustom } from '@/components/InputCustom';
 import { Textarea } from '@/components/Textarea';
+import ColorExample from '@/components/ColorExample';
+import { useState } from 'react';
+import { useNavigation } from 'expo-router';
 
 export default function ProductAdd() {
     const navigation = useNavigation()
     const { user } = useSelector(rootReducer => rootReducer.userReducer)
+
+    const [color, setColor] = useState(theme.black)
+    const [bgColor, setBgColor] = useState(theme.white) 
+
+    const handleColor = (color) => {
+        setColor(color)
+    }
+
+    const handleBgColor = (bgColor) => {
+        setBgColor(bgColor)
+    }
 
     const { control, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(productValidationSchema)
@@ -35,7 +48,7 @@ export default function ProductAdd() {
         if (reponse) {
             navigation.reset({
                 index: 0,
-                routes: [{ name: "Produtos" }],
+                routes: [{ name: "product/Product" }],
             })
         }
     }
@@ -45,9 +58,9 @@ export default function ProductAdd() {
         <VStack
             backgroundColor={theme.backgroundColor}
             flex={1}
-            padding={31}
+            px={30}
         >
-            <Center gap={12} flex={1}>
+            <Box gap={12} flex={1} alignItems="center" mt={20}>
                 <Controller
                     control={control}
                     name="categoria"
@@ -122,6 +135,14 @@ export default function ProductAdd() {
                     )}
                 />
 
+                <ColorExample
+                    color={color}
+                    bgColor={bgColor}
+                    handleColor={handleColor}
+                    handleBgColor={handleBgColor}
+                />
+                    
+
                 <Box
                     flexDirection="row"
                     justifyContent="space-between"
@@ -130,20 +151,22 @@ export default function ProductAdd() {
                     <Button
                         title="Cancelar"
                         width={150}
-                        height={50}
-                        backgroundColor={theme.colorNegative}
-                        onPress={() => navigation.navigate("Produtos")}
+                        color={theme.colorDark}
+                        backgroundColor={theme.colorLight}
+                        onPress={() => navigation.navigate("product/Product")}
                     />
                     <Button
                         title="Registrar"
                         width={150}
-                        height={50}
-                        backgroundColor={theme.colorPositive}
+                        color={theme.colorLight}
+                        backgroundColor={theme.colorDark}
                         onPress={handleSubmit(productRegister)}
                     />
                 </Box>
-            </Center>
+            </Box>
+
             <Footer />
+
         </VStack>
     )
 }

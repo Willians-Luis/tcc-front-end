@@ -9,11 +9,13 @@ export default function Footer() {
             height={55}
             justifyContent="space-around"
             alignItems="center"
-            backgroundColor={theme.colorDark}
+            backgroundColor={theme.backgroundColor}
             position="absolute"
             bottom={0}
             left={0}
             right={0}
+            borderTopWidth={2}
+            borderColor={theme.colorDark}
         >
             <Link href={"home/Home"} >
                 <Center>

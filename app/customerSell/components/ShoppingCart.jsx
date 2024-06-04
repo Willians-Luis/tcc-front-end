@@ -57,7 +57,7 @@ export default function ShoppingCart({ customer }) {
 
     return (
         <Box width="$full" borderRadius={10}>
-            <Box height={118}>
+            <Box height={125}>
                 {products?.length > 0
                     ? <FlatList
                         showsVerticalScrollIndicator={false}
@@ -90,8 +90,8 @@ export default function ShoppingCart({ customer }) {
                     px={4}
                     gap={8}
                 >
-                    <Text color={theme.black} fontWeight="bold">Valor Total:</Text>
-                    <Text color={theme.black} fontWeight="bold">
+                    <Text color={theme.colorLight} fontWeight="bold">Valor Total:</Text>
+                    <Text color={theme.colorLight} fontWeight="bold">
                         {numberForMoney(productsTotalPrice)}
                     </Text>
                 </Box>
@@ -99,7 +99,7 @@ export default function ShoppingCart({ customer }) {
                     onPress={() => setShowModalConfirm(true)}
                     title="Registrar"
                     height={35}
-                    bgColor={theme.colorDark}
+                    bgColor={theme.colorLight}
                 />
             </Box>
 

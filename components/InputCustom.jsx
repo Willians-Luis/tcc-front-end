@@ -23,7 +23,7 @@ export function InputCustom({ ErrorMessage = null, isInvalid, placeholder, keybo
                 {...rest} 
             >
                 <InputField 
-                    color={theme.black}
+                    color={theme.colorLight}
                     keyboardType={keyboardType}
                     onChangeText={onChangeText}
                     placeholder={placeholder}

@@ -23,10 +23,10 @@ export default function Product() {
             backgroundColor={theme.backgroundColor}
             gap={16}
         >
-            <Container title="Categorias" icon="book" backgroundColor={theme.white} >
+            <Container title="Categorias" icon="book" >
                 <CategoryFilter onPress={handleCategory} />
             </Container>
-            <Container title="Produtos" backgroundColor={theme.white}>
+            <Container title="Produtos" >
                 <ProductList data={data} />
                 <RoundButton onPress={() => navigation.navigate("productAdd/ProductAdd")} />
             </Container>

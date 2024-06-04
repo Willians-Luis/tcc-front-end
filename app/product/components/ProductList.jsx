@@ -6,6 +6,7 @@ export default function ProductList({ data }) {
         <Box height={400}>
             {data?.length > 0
                 ? <FlatList
+                showsVerticalScrollIndicator={false}
                     data={data}
                     renderItem={({ item }) => (
                         <ProductItem item={item} />

@@ -24,7 +24,6 @@ export default function CustomerAdd() {
             telefone: data.telefone
         }
         const response = await apiPostCustomer(customer, user.accessToken)
-        console.log(response)
         navigation.reset({
             index: 0,
             routes: [{ name: "customer/Customer" }], 
@@ -61,8 +60,7 @@ export default function CustomerAdd() {
                         />
                     )}
                 />
-
-
+                
                 <Box
                     flexDirection="row"
                     justifyContent="space-between"
@@ -71,15 +69,15 @@ export default function CustomerAdd() {
                     <Button
                         title="Cancelar"
                         width={150}
-                        height={50}
-                        backgroundColor={theme.colorNegative}
+                        color={theme.colorDark}
+                        backgroundColor={theme.colorLight}
                         onPress={() => navigation.navigate("customer/Customer")}
                     />
                     <Button
                         title="Registrar"
                         width={150}
-                        height={50}
-                        backgroundColor={theme.colorPositive}
+                        color={theme.colorLight}
+                        backgroundColor={theme.colorDark}
                         onPress={handleSubmit(customerRegister)}
                     />
                 </Box>

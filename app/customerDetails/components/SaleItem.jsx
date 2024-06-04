@@ -19,6 +19,9 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
             alignItems="center"
             padding={0}
             marginBottom={4}
+            backgroundColor={theme.backgroundColor}
+            borderWidth={1}
+            borderColor={theme.colorLight}
         >
             <Box
                 padding={8}
@@ -31,12 +34,10 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
                     gap={4}
                     width="$full"
                 >
-                    <Text color={theme.black} fontWeight="bold" fontSize={14}>
-                        {item.fk.produto.tipo.nome}
+                    <Text color={theme.colorLight} fontWeight="bold" fontSize={14}>
+                        {item.fk.produto.tipo.nome} {item.fk.produto.nome}
                     </Text>
-                    <Text color={theme.black} fontWeight="bold" fontSize={14}>
-                        {item.fk.produto.nome}
-                    </Text>
+                    
                 </Box>
                 <Box
                     width="$full"
@@ -44,13 +45,13 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
                     alignItems="center"
                     gap={16}
                 >
-                    <Text color={theme.black} fontSize={14}>
+                    <Text color={theme.colorLight} fontSize={14}>
                         {dataVenda}
                     </Text>
-                    <Text color={theme.black} fontSize={14}>
+                    <Text color={theme.colorLight} fontSize={14}>
                         Quant: {item.quantidade}
                     </Text>
-                    <Text color={theme.black} fontSize={14}>
+                    <Text color={theme.colorLight} fontSize={14}>
                         {numberForMoney((item.fk.produto.valorVenda) * item.quantidade)}
                     </Text>
                 </Box>
@@ -59,18 +60,19 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
                 px={4}
                 borderWidth={1}
                 borderRadius={5}
+                borderColor={theme.colorLight}
                 alignItems="center"
                 $active-bgColor={theme.colorDark}
                 onPress={() => setShowModalConfirmPayment(true)}
             >
-                <Text fontSize={12} color={theme.black}>Registrar</Text>
-                <Text fontSize={12} color={theme.black}>Pagamento</Text>
+                <Text fontSize={12} color={theme.colorLight}>Registrar</Text>
+                <Text fontSize={12} color={theme.colorLight}>Pagamento</Text>
             </Pressable>
             <Pressable 
                 onPress={() => setShowModalConfirmDelete(true)} 
                 p={4}
             >
-                <AntDesign name="delete" size={24} color={theme.black} />
+                <AntDesign name="delete" size={24} color={theme.colorLight} />
             </Pressable>
 
             <Confirm 

@@ -6,6 +6,7 @@ import ShoppingCart from "./components/ShoppingCart";
 import Footer from "@/components/Footer";
 import CategoryFilter from "@/components/CategoryFilter";
 import Container from "@/components/Container";
+import theme from "@/style/theme";
 
 export default function CustomerSell() {
     const { customer } = useSelector(rootReducer => rootReducer.customerReducer)
@@ -16,7 +17,7 @@ export default function CustomerSell() {
     }
 
     return (
-        <VStack flex={1}>
+        <VStack flex={1} backgroundColor={theme.backgroundColor}>
             <Box flex={1} p={12} gap={16}>
                 <Container title={customer.nome} icon="user" p={4} />
                 <Container title="Categorias/Produtos" icon="book" gap={4}>

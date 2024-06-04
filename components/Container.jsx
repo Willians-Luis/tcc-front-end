@@ -10,7 +10,11 @@ export default function Container({ children, title, icon = "shoppingcart", ...r
             pt={2}
             variant="elevated"
             elevation={2}
-            {...rest}>
+            borderWidth={2}
+            borderColor={theme.colorDark}
+            backgroundColor={theme.backgroundColor}
+            {...rest}
+        >
             <Box
                 flexDirection="row"
                 alignItems="center"
@@ -19,14 +23,14 @@ export default function Container({ children, title, icon = "shoppingcart", ...r
             >
                 <Box flexDirection="row" alignItems="center" gap={4}>
                     {icon === "attach-money"
-                        ? <MaterialIcons name="attach-money" size={18} color={theme.black} />
-                        : <AntDesign name={icon} size={18} color={theme.black} />
+                        ? <MaterialIcons name="attach-money" size={18} color={theme.colorLight} />
+                        : <AntDesign name={icon} size={18} color={theme.colorLight} />
                     }
-                    <Text fontSize={20} color={theme.black}>
+                    <Text fontSize={20} color={theme.colorLight}>
                         {title}
                     </Text>
                 </Box>
-                <AntDesign name="questioncircleo" size={18} color={theme.blue} />
+                <AntDesign name="questioncircleo" size={18} color={theme.colorLight} />
             </Box>
             {children}
         </Card>

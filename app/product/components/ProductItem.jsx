@@ -18,7 +18,7 @@ export default function ProductItem({ item }) {
                 my="$1"
                 padding={6}
                 flexDirection="row"
-                backgroundColor={theme.white}
+                backgroundColor={item.backgroundColor}
             >
                 <Box
                     width="$full"
@@ -30,10 +30,10 @@ export default function ProductItem({ item }) {
                         justifyContent="space-between"
                         py={8}
                     >
-                        <Text color={theme.black} fontWeight="bold">
+                        <Text color={item.textColor} fontWeight="bold">
                             {item.nome} {item?.tipo?.nome ? item.tipo.nome : ""}
                         </Text>
-                        <Text color={theme.black} fontWeight="bold">
+                        <Text color={item.textColor} fontWeight="bold">
                             {numberForMoney(item.valorVenda)}
                         </Text>
                     </Box>

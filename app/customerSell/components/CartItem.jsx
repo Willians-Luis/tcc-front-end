@@ -28,14 +28,17 @@ export default function CartItem({ product }) {
             justifyContent="space-between"
             marginBottom={4}
             borderRadius={5}
+            backgroundColor={theme.backgroundColor}
+            borderWidth={1}
+            borderColor={theme.colorLight}
             p={0}
             paddingLeft={8}
         >
-            <Text color={theme.black} fontWeight="bold">
+            <Text color={theme.colorLight} fontWeight="bold">
                 {product.nome}
             </Text>
             <Box flexDirection="row" gap={8}>
-                <Text color={theme.black} fontWeight="bold">
+                <Text color={theme.colorLight} fontWeight="bold">
                     {numberForMoney(product.valorVenda)}
                 </Text>
                 <Box
@@ -45,15 +48,16 @@ export default function CartItem({ product }) {
                     borderWidth={1}
                     gap={8}
                     borderRadius={8}
+                    borderColor={theme.colorLight}
                 >
                     <Pressable
                         onPress={handleDecreaseQuantityClick}
                         alignItems="center"
                         width={24}
                     >
-                        <Text fontWeight="bold" fontSize={18}>-</Text>
+                        <Text color={theme.colorLight} fontWeight="bold" fontSize={18}>-</Text>
                     </Pressable>
-                    <Text color={theme.black} fontWeight="bold">
+                    <Text color={theme.colorLight} fontWeight="bold">
                         {product.quantidade}
                     </Text>
                     <Pressable
@@ -61,11 +65,11 @@ export default function CartItem({ product }) {
                         alignItems="center"
                         width={24}
                     >
-                        <Text fontWeight="bold">+</Text>
+                        <Text color={theme.colorLight} fontWeight="bold">+</Text>
                     </Pressable>
                 </Box>
                 <Pressable onPress={handleRemoveClick}>
-                    <AntDesign name="delete" size={24} color="black" />
+                    <AntDesign name="delete" size={24} color={theme.colorLight} />
                 </Pressable>
             </Box>
 

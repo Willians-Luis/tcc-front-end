@@ -13,8 +13,6 @@ export function Input({
     isInvalid, 
     placeholder, 
     keyboardType, 
-    color,
-    placeholderTextColor=theme.colorLight,
     value = null, 
     ...rest 
 }) {
@@ -26,14 +24,14 @@ export function Input({
                 variant="underlined"
                 width={350}
                 isInvalid={invalid} 
-                $invalid-borderColor="red"    
+                $invalid-borderColor="red"   
+                borderColor={theme.colorLight}
                 {...rest} 
             >
                 <InputField 
-                    color={color}
+                    color={theme.colorLight}
                     placeholder={placeholder}
                     keyboardType={keyboardType}
-                    placeholderTextColor={placeholderTextColor}
                     value={value}
                 />
             </GlueInput>

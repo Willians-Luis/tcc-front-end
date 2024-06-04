@@ -39,7 +39,7 @@ export default function Login() {
         <VStack
             flex={1}
             padding={31}
-            bgColor={theme.white}
+            bgColor={theme.backgroundColor}
         >
             <Center gap={12} flex={1}>
 
@@ -53,9 +53,6 @@ export default function Login() {
                             ErrorMessage={errors.email?.message}
                             onChangeText={onChange}
                             value={value}
-                            color={theme.colorDark}
-                            placeholderTextColor={theme.colorDark}
-                            borderColor={theme.colorDark}
                         />
                     )}
                 />
@@ -71,9 +68,6 @@ export default function Login() {
                             onChangeText={onChange}
                             value={value}
                             type='password'
-                            color={theme.colorDark}
-                            placeholderTextColor={theme.colorDark}
-                            borderColor={theme.colorDark}
                         />
                     )}
                 />
