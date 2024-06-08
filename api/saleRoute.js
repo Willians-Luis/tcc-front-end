@@ -41,6 +41,19 @@ export const apiGetSalesByCustomerId = async (id, token) => {
     }
 }
 
+export const apiGetSalesByYearAndMonth = async (year, month, token) => {
+    try {
+        const response = await axios.get(url(`venda/date/${year}/${month}`), {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        return response.data
+    } catch (error) {
+        return false
+    }
+}
+
 export const apiDeleteSale = async (id, token) => {
     try {
         const response = await axios.delete(url(`venda/${id}`), {
@@ -67,9 +80,9 @@ export const apiPaySale = async (id, token) => {
     }
 }
 
-export const apiPayAllSales = async (customerId, value, discount, token) => {
+export const apiPayAllSales = async (customerId, token) => {
     try {
-        const response = await axios.put(url(`venda/pagarVarios/${customerId}/${value}/${discount}`), {}, {
+        const response = await axios.put(url(`venda/pagarVarios/${customerId}`), {}, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

@@ -13,8 +13,8 @@ export default function RoundButton({ onPress, ...rest }) {
             <Pressable
                 onPress={onPress}
                 backgroundColor={theme.colorDark}
-                height={50}
-                width={50}
+                height={40}
+                width={40}
                 borderRadius="$full"
                 justifyContent="center"
                 alignItems="center"

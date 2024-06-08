@@ -6,20 +6,22 @@ import theme from "@/style/theme";
 export default function Container({ children, title, icon = "shoppingcart", ...rest }) {
     return (
         <Card
-            px={10}
-            pt={2}
+            pt={0}
+            px={0}
             variant="elevated"
-            elevation={2}
-            borderWidth={2}
-            borderColor={theme.colorDark}
-            backgroundColor={theme.backgroundColor}
+            elevation={6}
+            // borderWidth={2}
+            // borderColor={theme.colorDark}
+            backgroundColor={theme.containerColor}
             {...rest}
         >
             <Box
                 flexDirection="row"
                 alignItems="center"
+                backgroundColor={theme.colorDark}
                 justifyContent="space-between"
                 height={50}
+                px={12}
             >
                 <Box flexDirection="row" alignItems="center" gap={4}>
                     {icon === "attach-money"
@@ -32,7 +34,9 @@ export default function Container({ children, title, icon = "shoppingcart", ...r
                 </Box>
                 <AntDesign name="questioncircleo" size={18} color={theme.colorLight} />
             </Box>
-            {children}
+            <Box px={12} mt={8}>
+                {children}
+            </Box>
         </Card>
     )
 }

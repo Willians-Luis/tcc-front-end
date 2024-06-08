@@ -5,21 +5,38 @@ import { useState } from "react";
 import ColorPickerModal from "./ColorPickerModal";
 import theme from "@/style/theme";
 
-export default function ColorExample({ color, bgColor, handleColor, handleBgColor }) {
+export default function ColorExample({ 
+    color = theme.backgroundColor, 
+    bgColor = theme.colorLight, 
+    borderColor = theme.colorLight,  
+    handleColor, 
+    handleBgColor, 
+    handleBorderColor 
+}) {
     const [showModalColor, setShowModalColor] = useState(false)
     const [showModalBgColor, setShowModalBgColor] = useState(false)
+    const [showModalBorderColor, setShowModalBorderColor] = useState(false)
 
     return (
-        <Box my={20}>
+        <Box gap={4} borderWidth={2} borderColor={theme.colorLight} padding={8} borderRadius={5}>
+            <Text color={theme.colorLight} textAlign="center">Escolha as cores do produto</Text>
             <Box flexDirection="row" justifyContent="space-between" >
                 <Button
-                    title="Cor do Fundo"
+                    title="Fundo"
                     onPress={() => setShowModalBgColor(true)}
                     color={theme.colorLight}
                     backgroundColor={theme.colorDark}
                 />
+
                 <Button
-                    title="Cor da Letra"
+                    title="Contorno"
+                    onPress={() => setShowModalBorderColor(true)}
+                    color={theme.colorLight}
+                    backgroundColor={theme.colorDark}
+                />
+
+                <Button
+                    title="Letra"
                     onPress={() => setShowModalColor(true)}
                     color={theme.colorLight}
                     backgroundColor={theme.colorDark}
@@ -31,7 +48,7 @@ export default function ColorExample({ color, bgColor, handleColor, handleBgColo
                 flexDirection="row"
                 backgroundColor={bgColor}
                 borderWidth={2}
-                borderColor={color}
+                borderColor={borderColor}
             >
                 <Box
                     width="$full"
@@ -63,6 +80,12 @@ export default function ColorExample({ color, bgColor, handleColor, handleBgColo
                 setShowModal={setShowModalBgColor}
                 initialColor={bgColor}
                 onColorChange={handleBgColor}
+            />
+            <ColorPickerModal
+                showModal={showModalBorderColor}
+                setShowModal={setShowModalBorderColor}
+                initialColor={borderColor}
+                onColorChange={handleBorderColor}
             />
         </Box>
 

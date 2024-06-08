@@ -22,15 +22,16 @@ export default function SalesPayments({ customer }) {
 
     const handlePayment = async () => {
         const response = await apiPayAllSales(
-            customer.id, valueSales, 0, user.accessToken
+            customer.id, user.accessToken
         )
         if (response) {
             const resp = await apiGetCustomer(
                 customer.id, user.accessToken
             )
             if (resp) dispatch(addCustomerAction(resp))
+            setShowModalAlert(true)
         }
-        setShowModalAlert(true)
+        
     }
 
     return (

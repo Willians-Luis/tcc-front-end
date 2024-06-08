@@ -24,10 +24,12 @@ export default function CustomerAdd() {
             telefone: data.telefone
         }
         const response = await apiPostCustomer(customer, user.accessToken)
-        navigation.reset({
-            index: 0,
-            routes: [{ name: "customer/Customer" }], 
-        })
+        if (response) {
+            navigation.reset({
+                index: 0,
+                routes: [{ name: "customer/Customer" }], 
+            })
+        }
     }
 
     return (

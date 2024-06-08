@@ -14,6 +14,7 @@ export default function ColorPickerModal({ showModal, setShowModal, initialColor
         const newColor = tinycolor(colorHsv).toHexString()
         setColor(newColor)
         onColorChange?.(newColor)
+        setShowModal(false)
     }
 
     const renderSaturation = () => null;
@@ -34,7 +35,7 @@ export default function ColorPickerModal({ showModal, setShowModal, initialColor
                             onColorChange={handleColorChange}
                             textSaturation={'Saturação'}
                             diamond={false}
-                            staticPalette={false}
+                            staticPalette={true}
                             renderSaturation={renderSaturation}
                         />
                     </GestureHandlerRootView>

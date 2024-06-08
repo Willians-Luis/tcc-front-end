@@ -18,8 +18,9 @@ export default function ProductAdd() {
     const navigation = useNavigation()
     const { user } = useSelector(rootReducer => rootReducer.userReducer)
 
-    const [color, setColor] = useState(theme.black)
-    const [bgColor, setBgColor] = useState(theme.white) 
+    const [color, setColor] = useState("#fff")
+    const [bgColor, setBgColor] = useState("#000") 
+    const [borderColor, setBorderColor] = useState("#fff") 
 
     const handleColor = (color) => {
         setColor(color)
@@ -27,6 +28,10 @@ export default function ProductAdd() {
 
     const handleBgColor = (bgColor) => {
         setBgColor(bgColor)
+    }
+
+    const handleBorderColor = (borderColor) => {
+        setBorderColor(borderColor)
     }
 
     const { control, handleSubmit, formState: { errors } } = useForm({
@@ -42,7 +47,10 @@ export default function ProductAdd() {
             "quantidade": data.estoque,
             "valorCusto": data.valorCusto,
             "valorVenda": data.valorVenda,
-            "descricao": data.descricao
+            "descricao": data.descricao,
+            "textColor": color,
+            "backgroundColor": bgColor,
+            "borderColor": borderColor
         }
         const reponse = await apiPostProduct(produto, user.accessToken)
         if (reponse) {
@@ -138,8 +146,10 @@ export default function ProductAdd() {
                 <ColorExample
                     color={color}
                     bgColor={bgColor}
+                    borderColor={borderColor}
                     handleColor={handleColor}
                     handleBgColor={handleBgColor}
+                    handleBorderColor={handleBorderColor}
                 />
                     
 

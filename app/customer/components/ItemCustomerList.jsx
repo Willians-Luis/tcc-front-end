@@ -14,21 +14,19 @@ export default function ItemCustomerList({ item, onPress }) {
                 justifyContent="space-between"
                 alignItems="center"
                 variant="elevated"
-                borderWidth={1}
-                borderColor={theme.colorLight}
-                backgroundColor={theme.backgroundColor}
+                elevation={6}
+                // borderWidth={1}
+                // borderColor={theme.colorLight}
+                backgroundColor={theme.containerColor}
                 my={4}
                 padding={13}
             >
                 <Text color={theme.colorLight} fontWeight="bold">{
                     item.nome
                 }</Text>
-                <Text color={
-                    valueSales > 0 ? "#ff0000" : theme.colorLight
-                }
-                    fontWeight="bold">{
-                        numberForMoney(valueSales)
-                    }</Text>
+                <Text color={valueSales > 0 ? "#ff0000" : theme.colorLight}fontWeight="bold">{
+                    numberForMoney(valueSales)
+                }</Text>
             </Card>
         </Pressable>
     )

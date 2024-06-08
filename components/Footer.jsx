@@ -1,5 +1,5 @@
 import { Box, Center, HStack, Text } from "@gluestack-ui/themed"
-import { AntDesign, Octicons } from '@expo/vector-icons';
+import { AntDesign, Octicons, MaterialIcons } from '@expo/vector-icons';
 import { Link } from "expo-router";
 import theme from "@/style/theme";
 
@@ -14,34 +14,47 @@ export default function Footer() {
             bottom={0}
             left={0}
             right={0}
-            borderTopWidth={2}
-            borderColor={theme.colorDark}
+            borderTopWidth={1}
+            borderColor={theme.colorLight}
         >
-            <Link href={"home/Home"} >
+            <Link href={"results/Results"} >
                 <Center>
-                    <AntDesign name="home" size={30} color={theme.colorLight} />
-                    <Text fontSize={12} color={theme.colorLight}>Início</Text>
+                    <Octicons name="graph" size={24} color={theme.colorLight} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorLight}>Resultados</Text>
                 </Center>
             </Link>
 
-            <Link href={"results/Results"} >
+            <Link href={"customer/Customer"}>
                 <Center>
-                    <Octicons name="graph" size={30} color={theme.colorLight} />
-                    <Text fontSize={12} color={theme.colorLight}>Resultados</Text>
+                    <AntDesign name="user" size={24} color={theme.colorLight} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorLight}>Clientes </Text>
+                </Center>
+            </Link>
+
+            <Link href={"home/Home"} style={{
+                height: 75, 
+                width: 65, 
+                display: "flex",
+                justifyContent: "center",
+            }}>
+                <Center bgColor={theme.colorDark} width={65} height={65} borderRadius="$full" borderWidth={4} borderColor={theme.colorDarkLight}>
+                    <AntDesign name="home" size={24} color={theme.backgroundColor}/>
+                    <Text fontSize={12} fontWeight="bold" color={theme.backgroundColor}>Início</Text>
                 </Center>
             </Link>
 
             <Link href={"product/Product"} >
                 <Center>
-                    <AntDesign name="shoppingcart" size={30} color={theme.colorLight} />
-                    <Text fontSize={12} color={theme.colorLight}>Produtos</Text>
+                    <AntDesign name="shoppingcart" size={24} color={theme.colorLight} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorLight}>Produtos</Text>
                 </Center>
             </Link>
 
-            <Link href={"customer/Customer"} >
+
+            <Link href={"cashFlow/CashFlow"} >
                 <Center>
-                    <AntDesign name="user" size={30} color={theme.colorLight} />
-                    <Text fontSize={12} color={theme.colorLight}>Clientes</Text>
+                    <MaterialIcons name="attach-money" size={24} color={theme.colorLight} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorLight}>Financeiro</Text>
                 </Center>
             </Link>
         </HStack>

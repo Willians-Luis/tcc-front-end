@@ -14,7 +14,8 @@ export default function CustomerFilter() {
                     flexDirection="row" 
                     alignItems="center"
                     justifyContent="space-between"
-                    backgroundColor={theme.colorDark}
+                    borderWidth={1}
+                    borderColor={theme.colorLight}
                 >
                     <Text color={theme.colorLight}>Todos</Text>
                     <AntDesign name="down" size={16} color={theme.colorLight} />
@@ -29,7 +30,8 @@ export default function CustomerFilter() {
                     flexDirection="row" 
                     alignItems="center"
                     justifyContent="space-between"
-                    backgroundColor={theme.colorDark}
+                    borderWidth={1}
+                    borderColor={theme.colorLight}
                 >
                     <Text color={theme.colorLight}>Data de Registro</Text>
                     <AntDesign name="down" size={16} color={theme.colorLight} />

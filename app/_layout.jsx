@@ -26,7 +26,7 @@ export default function RootLayout() {
           <Stack.Screen name="customerDetails/CustomerDetails" options={{ title: "Cliente Detalhe" }} />
           <Stack.Screen name="customerSell/CustomerSell" options={{ title: "Clientes" }} />
           <Stack.Screen name="results/Results" options={{ title: "Resultados" }} />
-
+          <Stack.Screen name="cashFlow/CashFlow" options={{ title: "Financeiro" }} />
         </Stack>
       </GluestackUIProvider>
     </Provider>

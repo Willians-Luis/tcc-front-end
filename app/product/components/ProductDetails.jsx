@@ -24,38 +24,38 @@ export default function ProductDetails({ showModal, setShowModal, item }) {
       onClose={() => { setShowModal(false) }}
     >
       <ModalBackdrop />
-      <ModalContent bgColor={theme.colorDark}>
+      <ModalContent bgColor={item.backgroundColor}>
         <ModalHeader>
-          <Heading size="lg" color={theme.colorLight}>{item.nome}</Heading>
+          <Heading size="lg" color={item.textColor}>{item.nome}</Heading>
           <ModalCloseButton>
-            <AntDesign name="close" size={20} color={theme.colorLight} />
+            <AntDesign name="close" size={20} color={item.textColor} />
           </ModalCloseButton>
         </ModalHeader>
         <ModalBody>
-          <Text color={theme.colorLight}>
+          <Text color={item.textColor}>
             Quant. disponível: {item.quantidade}
           </Text>
-          <Text color={theme.colorLight}>
+          <Text color={item.textColor}>
             Preço de custo: {numberForMoney(item.valorCusto)}
           </Text>
-          <Text color={theme.colorLight}>
+          <Text color={item.textColor}>
             Preço de venda: {numberForMoney(item.valorVenda)}
           </Text>
-          <Text color={theme.colorLight} display={item.descricao?.length > 0 ? "flex" : "none"}>
+          <Text color={item.textColor} display={item.descricao?.length > 0 ? "flex" : "none"}>
             Descrição: {item.descricao}
           </Text>
         </ModalBody>
         <ModalFooter gap={30}>
           <Pressable onPress={() => { setShowModal(false) }}>
             <Box width={40} alignItems="center">
-              <Feather name="edit" size={24} color={theme.colorLight} />
-              <Text fontSize={12} color={theme.colorLight}>Editar</Text>
+              <Feather name="edit" size={24} color={item.textColor} />
+              <Text fontSize={12} color={item.textColor}>Editar</Text>
             </Box>
           </Pressable>
           <Pressable onPress={() => { setShowModal(false) }}>
             <Box width={40} alignItems="center">
-              <AntDesign name="delete" size={24} color={theme.colorLight} />
-              <Text fontSize={12} color={theme.colorLight}>Excluir</Text>
+              <AntDesign name="delete" size={24} color={item.textColor} />
+              <Text fontSize={12} color={item.textColor}>Excluir</Text>
             </Box>
           </Pressable>
         </ModalFooter>

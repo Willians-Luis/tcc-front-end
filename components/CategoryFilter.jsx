@@ -9,13 +9,14 @@ const Item = ({ item, handleCategory, isClicked}) => {
     return (
         <Pressable onPress={() => handleCategory(item)}>
             <Box
-                padding={8}
+                p={2}
+                mr={8}
                 alignItems="center"
-                borderRadius={4}
-                backgroundColor={isClicked === item.id ? theme.colorLight : theme.colorDark}
-                marginRight={4}
+                borderRadius={5}
+                borderWidth={2}
+                borderColor={isClicked === item.id ? theme.colorLight : theme.containerColor}
             >
-                <Text fontSize="$lg" color={isClicked === item.id ? theme.colorDark : theme.colorLight}>
+                <Text fontSize="$lg" color={theme.colorLight}>
                     {item.nome}
                 </Text>
             </Box>

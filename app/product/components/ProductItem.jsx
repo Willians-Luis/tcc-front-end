@@ -19,6 +19,8 @@ export default function ProductItem({ item }) {
                 padding={6}
                 flexDirection="row"
                 backgroundColor={item.backgroundColor}
+                borderWidth={2}
+                borderColor={item.borderColor}
             >
                 <Box
                     width="$full"

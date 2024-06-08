@@ -4,8 +4,7 @@ import {
     FormControlError,
     FormControlErrorText,
     Input,
-    InputField,
-    onChange
+    InputField
 } from '@gluestack-ui/themed';
 import theme from '@/style/theme';
 

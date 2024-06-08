@@ -1,5 +1,6 @@
 import { Box, Center, FlatList, Text } from "@gluestack-ui/themed"
 import ProductItem from "./ProductItem"
+import theme from "@/style/theme"
 
 export default function ProductList({ data }) {
     return (
@@ -13,7 +14,7 @@ export default function ProductList({ data }) {
                     )}
                 />
                 : <Center flex={1}>
-                    <Text>Escolha uma categoria!</Text>
+                    <Text color={theme.colorLight}>Escolha uma categoria!</Text>
                 </Center>
             }
         </Box>
