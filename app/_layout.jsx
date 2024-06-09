@@ -1,23 +1,28 @@
 import store from "@/redux/store";
-import { GluestackUIProvider } from "@gluestack-ui/themed";
+import { GluestackUIProvider} from "@gluestack-ui/themed";
 import { Stack } from "expo-router";
 import { Provider } from "react-redux";
-import { config } from "@gluestack-ui/config" 
+import { config } from "@gluestack-ui/config"
 import theme from "@/style/theme";
+import SetingsRightStack from "./SetingsRightStack";
+
 
 export default function RootLayout() {
+
   return (
     <Provider store={store}>
       <GluestackUIProvider config={config}>
         <Stack
           screenOptions={{
             headerStyle: {
-              backgroundColor: theme.colorDark
+              backgroundColor: theme.colorDark,
             },
-            headerTintColor: theme.colorLight
+            headerRight: () => <SetingsRightStack /> ,
+            headerTintColor: theme.colorLight,
+
           }}
         >
-          <Stack.Screen name="index" options={{ title: "Login" }} />
+          <Stack.Screen name="index" options={{ title: "", headerRight: null }} />
           <Stack.Screen name="home/Home" options={{ title: "Home" }} />
           <Stack.Screen name="product/Product" options={{ title: "Produtos" }} />
           <Stack.Screen name="productAdd/ProductAdd" options={{ title: "Registrar Produto" }} />

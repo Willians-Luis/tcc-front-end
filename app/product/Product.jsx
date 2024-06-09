@@ -19,18 +19,15 @@ export default function Product() {
     return (
         <VStack
             flex={1}
-            py={12}
             backgroundColor={theme.backgroundColor}
-            gap={16}
         >
-            <Container title="Categorias" icon="book" >
+            <Container title="Categorias" icon="book" borderBottomWidth={0}>
                 <CategoryFilter onPress={handleCategory} />
             </Container>
 
-            <Container title="Produtos" >
-                <ProductList data={data} />
-                <RoundButton onPress={() => navigation.navigate("productAdd/ProductAdd")} />
-            </Container>
+            <ProductList data={data} />
+
+            <RoundButton onPress={() => navigation.navigate("productAdd/ProductAdd")} />
             
             <Footer />
         </VStack>

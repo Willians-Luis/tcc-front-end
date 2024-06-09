@@ -10,6 +10,7 @@ export default function Button({ title, color, ...rest }) {
             isFocusVisible={false}
             $active-bgColor='black'
             height={35}
+            
             {...rest}
         >
             <ButtonText color={color}>

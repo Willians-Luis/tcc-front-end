@@ -5,36 +5,28 @@ import theme from "@/style/theme";
 
 export default function Container({ children, title, icon = "shoppingcart", ...rest }) {
     return (
-        <Card
-            pt={0}
-            px={0}
-            variant="elevated"
-            elevation={6}
-            // borderWidth={2}
-            // borderColor={theme.colorDark}
-            backgroundColor={theme.containerColor}
-            {...rest}
-        >
+        <Card pt={0} px={0} size="md" mt="$3" mx="$4">
             <Box
                 flexDirection="row"
                 alignItems="center"
-                backgroundColor={theme.colorDark}
                 justifyContent="space-between"
-                height={50}
-                px={12}
+                borderBottomWidth={1}
+                px={16}
+                py={14}
+                {...rest}
             >
                 <Box flexDirection="row" alignItems="center" gap={4}>
                     {icon === "attach-money"
-                        ? <MaterialIcons name="attach-money" size={18} color={theme.colorLight} />
-                        : <AntDesign name={icon} size={18} color={theme.colorLight} />
+                        ? <MaterialIcons name="attach-money" size={18} color={theme.colorDarkLight} />
+                        : <AntDesign name={icon} size={18} color={theme.colorDarkLight} />
                     }
-                    <Text fontSize={20} color={theme.colorLight}>
+                    <Text fontSize={18} fontWeight="bold" color={theme.colorText}>
                         {title}
                     </Text>
                 </Box>
-                <AntDesign name="questioncircleo" size={18} color={theme.colorLight} />
+                <AntDesign name="questioncircleo" size={16} color={theme.colorDarkLight} />
             </Box>
-            <Box px={12} mt={8}>
+            <Box mt={8}>
                 {children}
             </Box>
         </Card>

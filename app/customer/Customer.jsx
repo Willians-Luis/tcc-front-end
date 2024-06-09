@@ -37,17 +37,16 @@ export default function Customer() {
     return (
         <VStack flex={1}>
             {!!data
-                ? <Box flex={1} padding={8} backgroundColor={theme.backgroundColor} gap={16}>
-                    <Container title="Filtro" icon="filter" pb={16}>
-                        <CustomerFilter />
-                    </Container>
-                    <Container title="Clientes" icon="user">
-                        <CustomerList
-                            data={data}
-                            onPress={(item) => handleNavigate(item)}
-                        />
-                        <RoundButton onPress={() => navigation.navigate("customerAdd/CustomerAdd")} />
-                    </Container>
+                ? <Box flex={1} backgroundColor={theme.backgroundColor}>
+                    <CustomerFilter />
+
+                    <CustomerList
+                        data={data}
+                        onPress={(item) => handleNavigate(item)}
+                    />
+
+                    <RoundButton onPress={() => navigation.navigate("customerAdd/CustomerAdd")} />
+
                     <Footer />
                 </Box>
                 : <Loading />

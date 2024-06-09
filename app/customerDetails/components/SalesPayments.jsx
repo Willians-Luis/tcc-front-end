@@ -39,9 +39,9 @@ export default function SalesPayments({ customer }) {
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
-            pl={5}
+            px={20}
         >
-            <Text color={theme.colorLight}>{numberForMoney(valueSales)}</Text>
+            <Text color={theme.colorText}>{numberForMoney(valueSales)}</Text>
             <Pressable
                 px={4}
                 borderWidth={1}
@@ -49,7 +49,7 @@ export default function SalesPayments({ customer }) {
                 alignItems="center"
                 padding={5}
                 backgroundColor={theme.colorDark}
-                $active-bgColor={theme.colorDark}
+                $active-bgColor={theme.colorDarkLight}
                 onPress={() => setShowModal(true)}
             >
                 <Text color={theme.colorLight} fontWeight="bold">Registrar Pagamento</Text>

@@ -1,43 +1,20 @@
-import { Box, Text } from "@gluestack-ui/themed";
-import { AntDesign } from '@expo/vector-icons';
+import { Box, Card, Text } from "@gluestack-ui/themed";
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import theme from "@/style/theme";
+import { Center } from "@gluestack-ui/themed";
 
 export default function CustomerFilter() {
     return (
-        <Box gap={8} padding={4} >
-            <Box flexDirection="column">
-                <Text color={theme.colorLight}>Filtrar</Text>
-                <Box
-                    padding={5}
-                    borderRadius={5}
-                    width="$full"
-                    flexDirection="row" 
-                    alignItems="center"
-                    justifyContent="space-between"
-                    borderWidth={1}
-                    borderColor={theme.colorLight}
-                >
-                    <Text color={theme.colorLight}>Todos</Text>
-                    <AntDesign name="down" size={16} color={theme.colorLight} />
-                </Box>
+        <Card padding={16} size="md" mt="$3" mx="$4" alignItems="center" 
+        justifyContent="space-between" flexDirection="row">
+            <Center flexDirection="row" gap={10}>
+                <FontAwesome name="filter" size={18} color={theme.colorDarkLight} />
+                <Text fontSize={18} fontWeight="bold" color={theme.colorText}>Filtro</Text>
+            </Center>
+            <Box>
+                <AntDesign name="down" size={16} color={theme.colorDarkLight} />
             </Box>
-            <Box flexDirection="column">
-                <Text color={theme.colorLight}>Ordenar</Text>
-                <Box
-                    padding={5}
-                    borderRadius={5}
-                    width="$full"
-                    flexDirection="row" 
-                    alignItems="center"
-                    justifyContent="space-between"
-                    borderWidth={1}
-                    borderColor={theme.colorLight}
-                >
-                    <Text color={theme.colorLight}>Data de Registro</Text>
-                    <AntDesign name="down" size={16} color={theme.colorLight} />
-                </Box>
-            </Box>
-        </Box>
+        </Card>
 
     )
 }

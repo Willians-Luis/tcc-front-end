@@ -30,30 +30,31 @@ export default function CustomerDetails() {
     return (
         <Box flex={1} backgroundColor={theme.backgroundColor}>
             {data
-                ? <Box flex={1} p={8} gap={16}>
-                    <Container title="Cliente" icon="user">
-                        <Box flexDirection="row" justifyContent="space-between" pb={4}>
-                            <Text color={theme.colorLight}>
+                ? <Box flex={1}>
+                    <Container title="Cliente" icon="user" borderBottomWidth={0}>
+                        <Box flexDirection="row" justifyContent="space-between" px={16}>
+                            <Text color={theme.colorText}>
                                 {data.nome}
                             </Text>
-                            <Text color={theme.colorLight}>
+                            <Text color={theme.colorText}>
                                 {data.telefone ? data.telefone : ""}
                             </Text>
                             <Box flexDirection="row" gap={20}>
-                                <Feather name="edit" size={20} color={theme.colorLight} />
-                                <AntDesign name="delete" size={20} color={theme.colorLight} />
+                                <Feather name="edit" size={20} color={theme.colorText} />
+                                <AntDesign name="delete" size={20} color={theme.colorText} />
                             </Box>
                         </Box>
                     </Container>
 
                     <Container title="Vendas">
                         <SalesList data={data.vendas} />
-                        <RoundButton
-                            onPress={() => { navigation.navigate("customerSell/CustomerSell") }}
-                        />
                     </Container>
 
-                    <Container title="Debito total" icon="attach-money">
+                    <RoundButton
+                        onPress={() => { navigation.navigate("customerSell/CustomerSell") }}
+                    />
+
+                    <Container title="Debito total" icon="attach-money" borderBottomWidth={0}>
                         <SalesPayments customer={data} />
                     </Container>
 

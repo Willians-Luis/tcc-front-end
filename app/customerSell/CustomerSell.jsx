@@ -18,8 +18,8 @@ export default function CustomerSell() {
 
     return (
         <VStack flex={1} backgroundColor={theme.backgroundColor}>
-            <Box flex={1} p={12} gap={16}>
-                <Container title={customer.nome} icon="user" p={4} />
+            <Box flex={1} >
+                <Container title={customer.nome} icon="user" p={4} borderBottomWidth={0}/>
                 <Container title="Categorias/Produtos" icon="book" gap={4}>
                     <CategoryFilter onPress={handleCategory} />
                     <ProductListSell

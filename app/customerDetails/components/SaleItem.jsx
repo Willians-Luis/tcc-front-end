@@ -1,4 +1,4 @@
-import { Box, Card, Pressable, Text } from "@gluestack-ui/themed"
+import { Box, Card, HStack, Pressable, Text } from "@gluestack-ui/themed"
 import { AntDesign } from '@expo/vector-icons'
 import { useState } from "react"
 import theme from "@/style/theme"
@@ -9,22 +9,20 @@ import Confirm from "@/components/Confirm"
 export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) {
     const [showModalConfirmDelete, setShowModalConfirmDelete] = useState(false)
     const [showModalConfirmPayment, setShowModalConfirmPayment] = useState(false)
-    
+
     const dataVenda = formatDate(item.dataVenda)
 
     return (
-        <Card
-            flexDirection="row"
+        <HStack
             justifyContent="space-between"
             alignItems="center"
-            padding={0}
-            marginBottom={4}
-            //backgroundColor={theme.backgroundColor}
-            borderWidth={1}
-            borderColor={theme.colorLight}
+            px={10}
+            py={12}
+            borderBottomWidth={2}
+            borderColor={theme.backgroundColor}
         >
             <Box
-                padding={8}
+                padding={4}
                 justifyContent="space-between"
                 alignItems="center"
                 width="$4/6"
@@ -34,10 +32,10 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
                     gap={4}
                     width="$full"
                 >
-                    <Text color={theme.colorLight} fontWeight="bold" fontSize={14}>
+                    <Text color={theme.colorText} fontWeight="bold" fontSize={14}>
                         {item.fk.produto.tipo.nome} {item.fk.produto.nome}
                     </Text>
-                    
+
                 </Box>
                 <Box
                     width="$full"
@@ -45,49 +43,49 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
                     alignItems="center"
                     gap={16}
                 >
-                    <Text color={theme.colorLight} fontSize={14}>
+                    <Text color={theme.colorText2} fontSize={13}>
                         {dataVenda}
                     </Text>
-                    <Text color={theme.colorLight} fontSize={14}>
-                        Quant: {item.quantidade}
+                    <Text color={theme.colorText2} fontSize={13}>
+                        Qtd: {item.quantidade}
                     </Text>
-                    <Text color={theme.colorLight} fontSize={14}>
+                    <Text color={theme.colorText2} fontSize={13}>
                         {numberForMoney((item.fk.produto.valorVenda) * item.quantidade)}
                     </Text>
                 </Box>
             </Box>
-            <Pressable 
+            <Pressable
                 p={2}
                 borderWidth={1}
                 borderRadius={5}
-                borderColor={theme.colorLight}
+                borderColor={theme.colorText}
                 alignItems="center"
-                $active-bgColor={theme.colorDark}
+                $active-bgColor={theme.colorDarkLight}
                 onPress={() => setShowModalConfirmPayment(true)}
             >
-                <Text fontSize={12} color={theme.colorLight}>Registrar</Text>
-                <Text fontSize={12} color={theme.colorLight}>Pagamento</Text>
+                <Text fontSize={12} color={theme.colorText}>Registrar</Text>
+                <Text fontSize={12} color={theme.colorText}>Pagamento</Text>
             </Pressable>
-            <Pressable 
-                onPress={() => setShowModalConfirmDelete(true)} 
+            <Pressable
+                onPress={() => setShowModalConfirmDelete(true)}
                 p={4}
             >
-                <AntDesign name="delete" size={24} color={theme.colorLight} />
+                <AntDesign name="delete" size={24} color={theme.colorText} />
             </Pressable>
 
-            <Confirm 
-                showModal={showModalConfirmPayment} 
-                setShowModal={setShowModalConfirmPayment} 
+            <Confirm
+                showModal={showModalConfirmPayment}
+                setShowModal={setShowModalConfirmPayment}
                 message="Deseja registrar o pagamento desta venda?"
                 onPress={() => handleSalePayment(item.id)}
             />
 
-            <Confirm 
-                showModal={showModalConfirmDelete} 
-                setShowModal={setShowModalConfirmDelete} 
+            <Confirm
+                showModal={showModalConfirmDelete}
+                setShowModal={setShowModalConfirmDelete}
                 message="Deseja remover esta venda?"
                 onPress={() => handleSaleDelete(item.id)}
             />
-        </Card>
+        </HStack>
     )
 }

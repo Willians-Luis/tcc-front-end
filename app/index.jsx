@@ -1,4 +1,4 @@
-import { Center, Text, VStack } from "@gluestack-ui/themed";
+import { Center, Heading, HStack, Text, VStack } from "@gluestack-ui/themed";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useDispatch } from "react-redux";
@@ -29,62 +29,85 @@ export default function Login() {
         const response = await loginRoute(user)
         if (response) {
             dispatch(addUserAction(response))
-            navigation.navigate("home/Home")
+            navigation.navigate("home/Home", {response})
         } else {
             setMessage(true)
         }
     }
 
     return (
-        <VStack
-            flex={1}
-            padding={31}
-            bgColor={theme.backgroundColor}
-        >
-            <Center gap={12} flex={1}>
+        <Center flex={1} bgColor={theme.colorDark}>
+            <VStack
+                width={350}
+                height={450}
+                borderWidth={2}
+                borderColor={theme.colorDarkLight}
+                borderRadius={10}
+                p={8}
+            >
+                <Center gap={20} flex={1}>
+                    <Heading fontSize={30} color={theme.colorLight} mb={20}>Login</Heading>
 
-                <Controller
-                    control={control}
-                    name="email"
-                    defaultValue="admin@admin.com"
-                    render={({ field: { value, onChange } }) => (
-                        <Input
-                            placeholder="Email"
-                            ErrorMessage={errors.email?.message}
-                            onChangeText={onChange}
-                            value={value}
-                        />
+                    <Controller
+                        control={control}
+                        name="email"
+                        defaultValue="admin@admin.com"
+                        render={({ field: { value, onChange } }) => (
+                            <Input
+                                placeholder={"Email"}
+                                placeholderTextColor={theme.colorDarkLight}
+                                ErrorMessage={errors.email?.message}
+                                onChangeText={onChange}
+                                //value={value}
+                                height={50}
+                                borderWidth={1}
+                                borderColor={theme.colorDarkLight}
+                            />
+                        )}
+                    />
+
+                    <Controller
+                        control={control}
+                        name="senha"
+                        defaultValue="123admin"
+                        render={({ field: { value, onChange } }) => (
+                            <Input
+                                placeholder="Senha"
+                                placeholderTextColor={theme.colorDarkLight}
+                                ErrorMessage={errors.senha?.message}
+                                onChangeText={onChange}
+                                //value={value}
+                                type='password'
+                                height={50}
+                                borderWidth={1}
+                                borderColor={theme.colorDarkLight}
+                            />
+                        )}
+                    />
+
+                    <Text color={theme.colorLight} fontSize={14}>Esqueceu sua senha?</Text>
+
+                    <Button
+                        title="Login"
+                        width={300}
+                        height={50}
+                        onPress={handleSubmit(login)}
+                        bgColor={theme.colorLight}
+                        color={theme.colorDark}
+                        borderRadius={30}
+                    />
+
+                    {message && (
+                        <Text color="#ff0000">Não foi possível efetuar o login!</Text>
                     )}
-                />
+                    <HStack>
+                        <Text fontSize={14} color={theme.colorDarkLight}>Não tem uma conta? </Text>
+                        <Text fontSize={14} color={theme.colorLight}>Registrar</Text>
+                    </HStack>
+                    
+                </Center>
+            </VStack>
+        </Center>
 
-                <Controller
-                    control={control}
-                    name="senha"
-                    defaultValue="123admin"
-                    render={({ field: { value, onChange } }) => (
-                        <Input
-                            placeholder="Senha"
-                            ErrorMessage={errors.senha?.message}
-                            onChangeText={onChange}
-                            value={value}
-                            type='password'
-                        />
-                    )}
-                />
-
-                <Button
-                    title="Login"
-                    width={350}
-                    height={50}
-                    onPress={handleSubmit(login)}
-                    bgColor={theme.colorDark}
-                    color={theme.colorLight}
-                />
-
-                {message && (
-                    <Text color="#ff0000">Não foi possível efetuar o login!</Text>
-                )}
-            </Center>
-        </VStack>
     )
 }

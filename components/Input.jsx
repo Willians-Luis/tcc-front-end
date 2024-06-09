@@ -12,6 +12,7 @@ export function Input({
     ErrorMessage = null, 
     isInvalid, 
     placeholder, 
+    placeholderTextColor,
     keyboardType, 
     value = null, 
     ...rest 
@@ -21,8 +22,8 @@ export function Input({
         <FormControl isInvalid={invalid}>
             <GlueInput 
                 size="lg" 
-                variant="underlined"
-                width={350}
+                variant="rounded"
+                width={300}
                 isInvalid={invalid} 
                 $invalid-borderColor="red"   
                 borderColor={theme.colorLight}
@@ -31,6 +32,7 @@ export function Input({
                 <InputField 
                     color={theme.colorLight}
                     placeholder={placeholder}
+                    placeholderTextColor={placeholderTextColor}
                     keyboardType={keyboardType}
                     value={value}
                 />
