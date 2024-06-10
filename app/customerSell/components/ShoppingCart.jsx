@@ -12,6 +12,7 @@ import { apiGetCustomer } from "@/api/customerRoute";
 import { selectProductsTotalPrice } from "@/redux/cart/cart.selectors";
 import theme from "@/style/theme";
 import { numberForMoney } from "@/services/numberForMoney";
+import { Feather } from "@expo/vector-icons";
 
 export default function ShoppingCart({ customer }) {
     const [showModalConfirm, setShowModalConfirm] = useState(false)
@@ -71,7 +72,7 @@ export default function ShoppingCart({ customer }) {
                         justifyContent="center"
                         alignItems="center"
                     >
-                        <Text>Agardando produtos!</Text>
+                        <Feather name="list" size={24} color="black" />
                     </Box>
                 }
 

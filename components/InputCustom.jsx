@@ -15,7 +15,7 @@ export function InputCustom({
     onChangeText, 
     value,
     placeholder, 
-    color=theme.colorDark,
+    color=theme.colorLight,
     placeholderTextColor=theme.colorDarkLight, 
     ...rest 
 }) {
@@ -24,8 +24,9 @@ export function InputCustom({
         <FormControl isInvalid={invalid} width={"100%"}>
             <Input 
                 size="lg" 
-                width={350}
+                width={"100%"}
                 isInvalid={invalid} 
+                borderColor={theme.colorDarkLight}
                 $invalid-borderColor="red"    
                 {...rest} 
             >

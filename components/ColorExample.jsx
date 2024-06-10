@@ -18,8 +18,8 @@ export default function ColorExample({
     const [showModalBorderColor, setShowModalBorderColor] = useState(false)
 
     return (
-        <Box gap={4} borderWidth={2} borderColor={theme.colorLight} padding={8} borderRadius={5}>
-            <Text color={theme.colorLight} textAlign="center">Escolha as cores do produto</Text>
+        <Box gap={4} borderWidth={1} borderColor={theme.colorDarkLight} padding={8} borderRadius={5}>
+            <Text color={theme.colorDark} textAlign="center">Escolha as cores do produto</Text>
             <Box flexDirection="row" justifyContent="space-between" >
                 <Button
                     title="Fundo"

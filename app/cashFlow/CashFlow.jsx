@@ -133,9 +133,9 @@ export default function CashFlow() {
         <VStack flex={1}>
             {data && (<Box flex={1} p={8} gap={16}>
                 <Box gap={8} flexDirection="row" justifyContent="center">
-                    <Panel name="Entradas" icon="arrow-circle-up" value={entrada} />
-                    <Panel name="Saidas" icon="arrow-circle-down" value={saida} />
-                    <Panel name="Total" icon="attach-money" value={total} />
+                    <Panel name="Entradas" icon="arrow-up-circle" value={entrada} iconColor="#29b806"/>
+                    <Panel name="Saidas" icon="arrow-down-circle" value={saida} iconColor="#db1d04"/>
+                    <Panel name="Total" icon="dollar-sign" value={total} />
                 </Box>
 
                 <Card backgroundColor={theme.colorDark}>

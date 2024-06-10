@@ -45,10 +45,8 @@ export default function Login() {
                 alt="Logo da empresa"
             />
             <VStack
-                width={350}
+                width={"100%"}
                 height={450}
-                //borderWidth={2}
-                //borderColor={theme.colorDarkLight}
                 borderRadius={10}
                 p={8}
             >
@@ -64,8 +62,9 @@ export default function Login() {
                                 placeholderTextColor={theme.colorDarkLight}
                                 ErrorMessage={errors.email?.message}
                                 onChangeText={onChange}
-                                //value={value}
+                                value={value}
                                 height={50}
+                                width={350}
                                 borderWidth={1}
                                 borderColor={theme.colorDarkLight}
                             />
@@ -82,9 +81,10 @@ export default function Login() {
                                 placeholderTextColor={theme.colorDarkLight}
                                 ErrorMessage={errors.senha?.message}
                                 onChangeText={onChange}
-                                //value={value}
+                                value={value}
                                 type='password'
                                 height={50}
+                                width={350}
                                 borderWidth={1}
                                 borderColor={theme.colorDarkLight}
                             />
@@ -93,15 +93,13 @@ export default function Login() {
 
                     <Button
                         title="Login"
-                        width={300}
+                        width={350}
                         height={50}
                         onPress={handleSubmit(login)}
                         bgColor={theme.colorLight}
                         color={theme.colorDark}
                         borderRadius={30}
                     />
-
-                    <Text color={theme.colorLight} fontSize={14}>Esqueceu sua senha?</Text>
 
                     {message && (
                         <Text color="#ff0000">Não foi possível efetuar o login!</Text>
@@ -110,6 +108,7 @@ export default function Login() {
                         <Text fontSize={14} color={theme.colorDarkLight}>Não tem uma conta? </Text>
                         <Text fontSize={14} color={theme.colorLight}>Registrar</Text>
                     </HStack>
+                    <Text color={theme.colorLight} fontSize={14}>Esqueceu sua senha?</Text>
 
                 </Center>
             </VStack>

@@ -29,7 +29,8 @@ const Item = ({ item, handleCategory, isClicked}) => {
 export default function CategoryFilter({
     onPress = () => { return null },
     onChangeText = () => { return null },
-    ErrorMessage= null
+    ErrorMessage= null,
+    ...rest
 }) {
 
     const { user } = useSelector(rootReducer => rootReducer.userReducer)
@@ -58,8 +59,8 @@ export default function CategoryFilter({
     }, [])
 
     return (
-        <Box gap={4} width="$full" ml={16}>
-            <HStack ml={6} alignItems="center" >
+        <Box gap={4} width="$full" pl={16} {...rest}>
+            <HStack alignItems="center" >
                 <Text color={theme.colorDarkLight}>Categorias</Text>
                 <Feather name="arrow-right" size={16} color={theme.colorDarkLight} />
             </HStack>

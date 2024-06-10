@@ -1,4 +1,4 @@
-import { Center, VStack, Box } from '@gluestack-ui/themed';
+import { VStack, Box } from '@gluestack-ui/themed';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useSelector } from 'react-redux';
@@ -9,7 +9,6 @@ import { productValidationSchema } from '@/services/productValidationSchema';
 import Footer from '@/components/Footer';
 import theme from '@/style/theme';
 import { InputCustom } from '@/components/InputCustom';
-import { Textarea } from '@/components/Textarea';
 import ColorExample from '@/components/ColorExample';
 import { useState } from 'react';
 import { useNavigation } from 'expo-router';
@@ -18,9 +17,9 @@ export default function ProductAdd() {
     const navigation = useNavigation()
     const { user } = useSelector(rootReducer => rootReducer.userReducer)
 
-    const [color, setColor] = useState("#fff")
-    const [bgColor, setBgColor] = useState("#000") 
-    const [borderColor, setBorderColor] = useState("#fff") 
+    const [color, setColor] = useState("#000")
+    const [bgColor, setBgColor] = useState("#fff")
+    const [borderColor, setBorderColor] = useState("#000")
 
     const handleColor = (color) => {
         setColor(color)
@@ -61,24 +60,25 @@ export default function ProductAdd() {
         }
     }
 
-
     return (
         <VStack
             backgroundColor={theme.backgroundColor}
             flex={1}
-            px={30}
+            alignItems="center" 
         >
-            <Box gap={12} flex={1} alignItems="center" mt={20}>
-                <Controller
-                    control={control}
-                    name="categoria"
-                    render={({ field: { onChange } }) => (
-                        <CategoryFilter
-                            onChangeText={onChange}
-                            ErrorMessage={errors.categoria?.message}
-                        />
-                    )}
-                />
+            <Controller
+                control={control}
+                name="categoria"
+                render={({ field: { onChange } }) => (
+                    <CategoryFilter
+                        onChangeText={onChange}
+                        ErrorMessage={errors.categoria?.message}
+                        mt={20}
+                    />
+                )}
+            />
+
+            <Box gap={12} flex={1} alignItems="center" padding={16}>
 
                 <Controller
                     control={control}
@@ -135,7 +135,7 @@ export default function ProductAdd() {
                     control={control}
                     name="descricao"
                     render={({ field: { onChange } }) => (
-                        <Textarea
+                        <InputCustom
                             placeholder="Descrição (Opicional)"
                             ErrorMessage={errors.descricao?.message}
                             onChangeText={onChange}
@@ -151,23 +151,23 @@ export default function ProductAdd() {
                     handleBgColor={handleBgColor}
                     handleBorderColor={handleBorderColor}
                 />
-                    
+
 
                 <Box
                     flexDirection="row"
                     justifyContent="space-between"
-                    width={350}
+                    width={"100%"}
                 >
                     <Button
                         title="Cancelar"
-                        width={150}
+                        width={"46%"}
                         color={theme.colorDark}
                         backgroundColor={theme.colorLight}
                         onPress={() => navigation.navigate("product/Product")}
                     />
                     <Button
                         title="Registrar"
-                        width={150}
+                        width={"46%"}
                         color={theme.colorLight}
                         backgroundColor={theme.colorDark}
                         onPress={handleSubmit(productRegister)}

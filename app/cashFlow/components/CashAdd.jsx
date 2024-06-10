@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
 import InputRadio from "./InputRadio";
 import theme from "@/style/theme";
-import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 export default function CashAdd({ registerExpenses }) {
 
@@ -26,7 +26,7 @@ export default function CashAdd({ registerExpenses }) {
                 render={({ field: { onChange } }) => (
                     <Box flexDirection="row" alignItems="center" width={"100%"}>
                         <Box width={"7%"}>
-                            <AntDesign name="filetext1" size={20} color={theme.colorDark2} />
+                            <Feather name="file-text" size={20} color={theme.colorDark2} />
                         </Box>
 
                         <InputCustom
@@ -47,9 +47,9 @@ export default function CashAdd({ registerExpenses }) {
                     control={control}
                     name="value"
                     render={({ field: { onChange } }) => (
-                        <Box flexDirection="row" alignItems="center" width={"50%"}>
-                            <Center width={"12%"} justifyContent="center" alignItems="ceter" ml={4}>
-                                <FontAwesome name="dollar" size={20} color={theme.colorDark2} />
+                        <Box flexDirection="row" alignItems="center" width={"50%"} gap={3}>
+                            <Center width={"12%"} justifyContent="center" alignItems="ceter">
+                                <Feather name="dollar-sign" size={20} color={theme.colorDark2} />
                             </Center>
                             <InputCustom
                                 placeholder="Valor"

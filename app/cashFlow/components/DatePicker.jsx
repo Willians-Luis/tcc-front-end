@@ -11,7 +11,10 @@ export default function DatePicker({ data, datePicker, isClicked}) {
                 borderColor={isClicked === item ? theme.colorLight : theme.colorDark2}
                 px={16}
             >
-                <Text color={isClicked === item ? theme.colorLight : theme.colorDark2}>
+                <Text 
+                    color={isClicked === item ? theme.colorLight : theme.colorDark2}
+                    fontWeight="bold"
+                >
                     {item}
                 </Text>
             </Pressable>
