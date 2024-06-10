@@ -12,6 +12,7 @@ import DatePicker from "./components/DatePicker";
 import Loading from "@/components/Loading";
 import { apiGetSalesByYearAndMonth } from "@/api/saleRoute";
 import Confirm from "@/components/Confirm";
+import theme from "@/style/theme";
 
 export default function CashFlow() {
     const { user } = useSelector(rootReducer => rootReducer.userReducer)
@@ -52,12 +53,12 @@ export default function CashFlow() {
                 })
                 const arrayData = [{
                     "id": "abc1",
-                    "descricao": "Faturamento com vendas",
+                    "descricao": "Vendas/produtos",
                     "valor": valueSale,
                     "tipo": "entrada"
                 }, {
                     "id": "abc2",
-                    "descricao": "Custo dos produtos",
+                    "descricao": "Custos/Produtos",
                     "valor": valueCost,
                     "tipo": "saida"
                 }, ...response1]
@@ -96,6 +97,7 @@ export default function CashFlow() {
             setMessage("Não foi possível registrar o valor!")
         }
     }
+
 
     const deleteExpense = async (id) => {
         const response = await apiDeleteExpenses(id, user.accessToken)
@@ -136,14 +138,14 @@ export default function CashFlow() {
                     <Panel name="Total" icon="attach-money" value={total} />
                 </Box>
 
-                <Card>
-                    <Box>
+                <Card backgroundColor={theme.colorDark}>
+                    <Box gap={8}>
                         <DatePicker data={dataYears} datePicker={handleDatePickerYear} isClicked={clickedYear} />
                         <DatePicker data={dataMonths} datePicker={handleDatePickerMonth} isClicked={clickedMonth} />
                     </Box>
                 </Card>
 
-                <Card>
+                <Card px={12} backgroundColor={theme.colorDark}>
                     <CashAdd registerExpenses={registerExpenses} />
                 </Card>
 

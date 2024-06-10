@@ -37,15 +37,18 @@ export default function Customer() {
     return (
         <VStack flex={1}>
             {!!data
-                ? <Box flex={1} backgroundColor={theme.backgroundColor}>
+                ? <Box flex={1} backgroundColor={theme.backgroundColor} p={16} gap={16}>
                     <CustomerFilter />
+
+                    <RoundButton 
+                        onPress={() => navigation.navigate("customerAdd/CustomerAdd")} 
+                        title="Adicionar cliente"
+                    />
 
                     <CustomerList
                         data={data}
                         onPress={(item) => handleNavigate(item)}
                     />
-
-                    <RoundButton onPress={() => navigation.navigate("customerAdd/CustomerAdd")} />
 
                     <Footer />
                 </Box>

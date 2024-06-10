@@ -8,10 +8,10 @@ export default function DatePicker({ data, datePicker, isClicked}) {
                 onPress={() => datePicker(item)}
                 disabled={isClicked === item}
                 borderBottomWidth={2}
-                borderColor={isClicked === item ? theme.colorLight : theme.colorDark}
+                borderColor={isClicked === item ? theme.colorLight : theme.colorDark2}
                 px={16}
             >
-                <Text color={isClicked === item ? theme.colorLight : theme.colorDark}>
+                <Text color={isClicked === item ? theme.colorLight : theme.colorDark2}>
                     {item}
                 </Text>
             </Pressable>

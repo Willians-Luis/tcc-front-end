@@ -22,7 +22,7 @@ export default function RootLayout() {
 
           }}
         >
-          <Stack.Screen name="index" options={{ title: "", headerRight: null }} />
+          <Stack.Screen name="index" options={{ title: "", headerRight: null, headerStyle: {elevation: 0, backgroundColor: theme.colorDark} }} />
           <Stack.Screen name="home/Home" options={{ title: "Home" }} />
           <Stack.Screen name="product/Product" options={{ title: "Produtos" }} />
           <Stack.Screen name="productAdd/ProductAdd" options={{ title: "Registrar Produto" }} />

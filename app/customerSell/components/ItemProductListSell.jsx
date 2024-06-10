@@ -14,47 +14,47 @@ export default function ItemProductListSell({ product }) {
     }
 
     return (
-        <Card
-            variant="elevated"
+        <Box
             my={5}
-            p={0}
-            justifyContent="space-between"
             flexDirection="row"
             alignItems="center"
-            backgroundColor={product.backgroundColor}
-            borderWidth={1}
-            borderColor={theme.colorLight}
+            justifyContent="space-between"
+            width={"100%"}
+            borderRadius={5}
         >
-            <Box width="$3/4" padding={8}>
-                <Box
-                    flexDirection="row"
-                    alignItems="center"
-                    justifyContent="space-between"
-                >
-                    <Text color={theme.colorLight} fontWeight="bold">
-                        {product.nome} {product?.tipo?.nome ? product.tipo.nome : ""}
-                    </Text>
-                    <Text color={theme.colorLight} fontWeight="bold">
-                        {numberForMoney(product.valorVenda)}
-                    </Text>
-                </Box>
+            <Box
+                width={"85%"}
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="space-between"
+                borderRadius={5}
+                backgroundColor={product.backgroundColor}
+                borderColor={product.borderColor}
+                borderWidth={2}
+                height={40}
+                px={8}
+            >
+                <Text color={product.textColor}>
+                    {product.nome} {product?.tipo?.nome ? product.tipo.nome : ""}
+                </Text>
+
+                <Text color={product.textColor}>
+                    {numberForMoney(product.valorVenda)}
+                </Text>
             </Box>
+
             <Pressable
                 onPress={handleProductClick}
-                height={40}
-                width={60}
                 justifyContent="center"
                 alignItems="center"
-                backgroundColor={theme.backgroundColor}
-                borderBottomRightRadius={5}
-                borderTopRightRadius={5}
-                borderWidth={1}
-                borderColor={theme.colorLight}
-                $active-bg={theme.colorDark}
+                borderRadius={5}
+                backgroundColor={theme.colorDark}
                 $active-bgColor={theme.colorLight}
+                height={38}
+                width={"12%"}
             >
                 <Feather name="shopping-cart" size={24} color={theme.colorLight} />
             </Pressable>
-        </Card>
+        </Box >
     )
 }

@@ -30,31 +30,35 @@ export default function CustomerDetails() {
     return (
         <Box flex={1} backgroundColor={theme.backgroundColor}>
             {data
-                ? <Box flex={1}>
-                    <Container title="Cliente" icon="user" borderBottomWidth={0}>
-                        <Box flexDirection="row" justifyContent="space-between" px={16}>
+                ? <Box flex={1} py={16} gap={16}>
+                    <Container title="Cliente" icon="user" borderBottomWidth={0} pb={7}>
+                        <Box flexDirection="row" justifyContent="space-between" px={16} >
                             <Text color={theme.colorText}>
                                 {data.nome}
                             </Text>
                             <Text color={theme.colorText}>
                                 {data.telefone ? data.telefone : ""}
                             </Text>
-                            <Box flexDirection="row" gap={20}>
+                            <Box flexDirection="row" gap={20} >
                                 <Feather name="edit" size={20} color={theme.colorText} />
                                 <AntDesign name="delete" size={20} color={theme.colorText} />
                             </Box>
                         </Box>
                     </Container>
 
+                    <Box px={16}>
+                        <RoundButton
+                            title="Adicionar venda"
+                            onPress={() => { navigation.navigate("customerSell/CustomerSell") }}
+                        />
+                    </Box>
+
+
                     <Container title="Vendas">
                         <SalesList data={data.vendas} />
                     </Container>
 
-                    <RoundButton
-                        onPress={() => { navigation.navigate("customerSell/CustomerSell") }}
-                    />
-
-                    <Container title="Debito total" icon="attach-money" borderBottomWidth={0}>
+                    <Container title="Debito total" icon="dollar-sign" borderBottomWidth={0} pb={12}>
                         <SalesPayments customer={data} />
                     </Container>
 

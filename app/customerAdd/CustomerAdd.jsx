@@ -47,6 +47,7 @@ export default function CustomerAdd() {
                             placeholder="Nome"
                             ErrorMessage={errors.nome?.message}
                             onChangeText={onChange}
+                            borderColor={theme.colorDarkLight}
                         />
                     )}
                 />
@@ -59,6 +60,7 @@ export default function CustomerAdd() {
                             placeholder="Telefone (Opcional)"
                             onChangeText={onChange}
                             keyboardType="numeric"
+                            borderColor={theme.colorDarkLight}
                         />
                     )}
                 />

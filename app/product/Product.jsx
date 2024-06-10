@@ -21,13 +21,14 @@ export default function Product() {
             flex={1}
             backgroundColor={theme.backgroundColor}
         >
-            <Container title="Categorias" icon="book" borderBottomWidth={0}>
-                <CategoryFilter onPress={handleCategory} />
+            <Container title="Categorias" icon="book" mb={0} borderBottomWidth={0}>
+                
             </Container>
 
-            <ProductList data={data} />
+            <CategoryFilter onPress={handleCategory} />
 
-            <RoundButton onPress={() => navigation.navigate("productAdd/ProductAdd")} />
+            <ProductList data={data} onPress={() => navigation.navigate("productAdd/ProductAdd")}/>
+            
             
             <Footer />
         </VStack>

@@ -1,7 +1,7 @@
 import { calculateDebtAmount } from "@/services/calculateDebtAmount"
 import { numberForMoney } from "@/services/numberForMoney"
 import theme from "@/style/theme"
-import { FontAwesome, AntDesign } from '@expo/vector-icons';
+import { FontAwesome, AntDesign, Feather } from '@expo/vector-icons';
 import { Text, Pressable, HStack, Box } from "@gluestack-ui/themed"
 
 export default function ItemCustomerList({ item, onPress }) {
@@ -13,12 +13,12 @@ export default function ItemCustomerList({ item, onPress }) {
             onPress={() => onPress(item)}
             flexDirection="row"
             justifyContent="space-between"
-            padding={16}
+            padding={14}
             borderBottomWidth={2}
             borderColor={theme.backgroundColor}
         >
             <HStack alignItems="center" gap={10}>
-                <FontAwesome name="user-circle-o" size={18} color={theme.colorDarkLight} />
+                <Feather name="user" size={18} color={theme.colorDarkLight} />
                 <Box>
                     <Text color={theme.colorText} fontWeight="bold">{item.nome}</Text>
                     <Text color={theme.colorText2} fontSize={11}>{item.telefone}</Text>

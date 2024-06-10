@@ -1,6 +1,7 @@
 import { numberForMoney } from "@/services/numberForMoney";
 import { Box, Pressable, Text } from "@gluestack-ui/themed";
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { MaterialIcons, AntDesign, FontAwesome5 } from '@expo/vector-icons';
+import theme from "@/style/theme";
 
 export default function CashListItem({ item, handleDeleteExpense }) {
     return (
@@ -9,29 +10,33 @@ export default function CashListItem({ item, handleDeleteExpense }) {
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
-            mt={8}
+            borderBottomWidth={2}
+            borderColor={theme.backgroundColor}
+            py={16}
             p={8}
         >
-            <Box width="$2/4">
-                <Text fontSize={14}>{item.descricao}</Text>
+            <Box width={"60%"} flexDirection="row" alignItems="center" gap={6}>
+                {/* <FontAwesome5 name="coins" size={16} color={theme.colorDark2} /> */}
+                <Text color={theme.colorText} fontSize={14}>{item.descricao}</Text>
             </Box>
 
-            <Text fontSize={14}>{numberForMoney(item.valor)}</Text>
+            <Box flexDirection="row" width={"40%"} justifyContent="space-between">
+                <Box justifyContent="flex-start" flexDirection="row" gap={4}>
+                    {item.tipo === "entrada" && (
+                        <MaterialIcons name={"arrow-circle-up"} size={20} color="#29b806" />
+                    )}
 
-            <Box flexDirection="row" width={60} justifyContent="space-between">
-                {item.tipo === "entrada" && (
-                    <MaterialIcons name={"arrow-circle-up"} size={20} color="#29b806" />
-                )}
-
-                {item.tipo === "saida" && (
-                    <MaterialIcons name={"arrow-circle-down"} size={20} color="#db1d04" />
-                )}
+                    {item.tipo === "saida" && (
+                        <MaterialIcons name={"arrow-circle-down"} size={20} color="#db1d04" />
+                    )}
+                    <Text color={theme.colorText} fontSize={14}>{numberForMoney(item.valor)}</Text>
+                </Box>
 
                 {(item.id !== "abc1" && item.id !== "abc2") ? (
                     <Pressable onPress={() => handleDeleteExpense(item.id)}>
-                        <AntDesign name="delete" size={20} color="#000" />
+                        <AntDesign name="delete" size={20} color={theme.colorText} />
                     </Pressable>
-                ) : (<AntDesign name="delete" size={20} color="#fff" />)}
+                ) : (<AntDesign name="lock1" size={20} color={theme.colorText} />)}
             </Box>
 
         </Box>

@@ -10,6 +10,7 @@ import { addUserAction } from "@/redux/user/actions";
 import Button from "@/components/Button";
 import theme from "@/style/theme";
 import { useNavigation } from "expo-router";
+import { Image } from "@gluestack-ui/themed";
 
 export default function Login() {
     const navigation = useNavigation()
@@ -29,7 +30,7 @@ export default function Login() {
         const response = await loginRoute(user)
         if (response) {
             dispatch(addUserAction(response))
-            navigation.navigate("home/Home", {response})
+            navigation.navigate("home/Home", { response })
         } else {
             setMessage(true)
         }
@@ -37,16 +38,21 @@ export default function Login() {
 
     return (
         <Center flex={1} bgColor={theme.colorDark}>
+            <Image
+                width={300}
+                height={100}
+                source={ require("../assets/images/logopng.png")}
+                alt="Logo da empresa"
+            />
             <VStack
                 width={350}
                 height={450}
-                borderWidth={2}
-                borderColor={theme.colorDarkLight}
+                //borderWidth={2}
+                //borderColor={theme.colorDarkLight}
                 borderRadius={10}
                 p={8}
             >
                 <Center gap={20} flex={1}>
-                    <Heading fontSize={30} color={theme.colorLight} mb={20}>Login</Heading>
 
                     <Controller
                         control={control}
@@ -85,8 +91,6 @@ export default function Login() {
                         )}
                     />
 
-                    <Text color={theme.colorLight} fontSize={14}>Esqueceu sua senha?</Text>
-
                     <Button
                         title="Login"
                         width={300}
@@ -97,6 +101,8 @@ export default function Login() {
                         borderRadius={30}
                     />
 
+                    <Text color={theme.colorLight} fontSize={14}>Esqueceu sua senha?</Text>
+
                     {message && (
                         <Text color="#ff0000">Não foi possível efetuar o login!</Text>
                     )}
@@ -104,7 +110,7 @@ export default function Login() {
                         <Text fontSize={14} color={theme.colorDarkLight}>Não tem uma conta? </Text>
                         <Text fontSize={14} color={theme.colorLight}>Registrar</Text>
                     </HStack>
-                    
+
                 </Center>
             </VStack>
         </Center>

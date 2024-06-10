@@ -4,10 +4,11 @@ import theme from "@/style/theme"
 import { HStack } from "@gluestack-ui/themed"
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons"
 import { Card } from "@gluestack-ui/themed"
+import RoundButton from "@/components/RoundButton"
 
 export default function ProductList({ data }) {
     return (
-        <Card height={"65%"} pt={0} px={4} size="md" mt="$3" mx="$4">
+        <Card height={"65%"} pt={0} px={4} size="md">
             <HStack py={14} px={16} justifyContent="space-between">
 
                 <HStack gap={10} alignItems="center">

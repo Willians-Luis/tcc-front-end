@@ -1,18 +1,22 @@
 import Button from "@/components/Button";
 import { InputCustom } from "@/components/InputCustom";
-import { Textarea } from "@/components/Textarea";
 import { cashValidationSchema } from "@/services/cashValidationSchema";
-import { Box, Center } from "@gluestack-ui/themed";
+import { Box, Center, HStack } from "@gluestack-ui/themed";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
 import InputRadio from "./InputRadio";
+import theme from "@/style/theme";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 
 export default function CashAdd({ registerExpenses }) {
 
-    const { control, handleSubmit, formState: { errors } } = useForm({
+    const { control, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(cashValidationSchema)
     })
+
+    const canselRegister = () => {
+        reset()
+    }
 
     return (
         <Center gap={8}>
@@ -20,27 +24,46 @@ export default function CashAdd({ registerExpenses }) {
                 control={control}
                 name="description"
                 render={({ field: { onChange } }) => (
-                    <InputCustom
-                        placeholder="Descrição"
-                        ErrorMessage={errors.description?.message}
-                        onChangeText={onChange}
-                    />
+                    <Box flexDirection="row" alignItems="center" width={"100%"}>
+                        <Box width={"7%"}>
+                            <AntDesign name="filetext1" size={20} color={theme.colorDark2} />
+                        </Box>
+
+                        <InputCustom
+                            placeholder="Descrição"
+                            ErrorMessage={errors.description?.message}
+                            onChangeText={onChange}
+                            borderColor={theme.colorDarkLight}
+                            variant="underlined"
+                            height={35}
+                            width={"91%"}
+                            color={theme.colorLight}
+                        />
+                    </Box>
                 )}
             />
-            <Box width={350} flexDirection="row" alignItems="center" justifyContent="space-between">
+            <Box width={"100%"} flexDirection="row" alignItems="center" justifyContent="space-between">
                 <Controller
-                    style={{ width: "100%" }}
                     control={control}
                     name="value"
                     render={({ field: { onChange } }) => (
-                        <InputCustom
-                            placeholder="Valor"
-                            ErrorMessage={errors.value?.message}
-                            onChangeText={onChange}
-                            keyboardType="numeric"
-                            width={120}
-                            height={35}
-                        />
+                        <Box flexDirection="row" alignItems="center" width={"50%"}>
+                            <Center width={"12%"} justifyContent="center" alignItems="ceter" ml={4}>
+                                <FontAwesome name="dollar" size={20} color={theme.colorDark2} />
+                            </Center>
+                            <InputCustom
+                                placeholder="Valor"
+                                ErrorMessage={errors.value?.message}
+                                onChangeText={onChange}
+                                keyboardType="numeric"
+                                height={35}
+                                borderColor={theme.colorDarkLight}
+                                variant="underlined"
+                                width={"88%"}
+                                color={theme.colorLight}
+                            />
+                        </Box>
+
                     )}
                 />
                 <Controller
@@ -54,12 +77,27 @@ export default function CashAdd({ registerExpenses }) {
                     )}
                 />
             </Box>
-            <Button
-                title="Registrar"
-                onPress={handleSubmit(registerExpenses)}
-                width={350}
-                height={35}
-            />
+            <HStack width={"100%"} justifyContent="space-between" mt={4}>
+                <Button
+                    title="Cancelar"
+                    onPress={canselRegister}
+                    width={"45%"}
+                    height={35}
+                    backgroundColor={theme.colorDark}
+                    borderWidth={2}
+                    borderColor={theme.colorDark2}
+                    color={theme.colorDark2}
+                />
+                <Button
+                    title="Registrar"
+                    onPress={handleSubmit(registerExpenses)}
+                    width={"45%"}
+                    height={35}
+                    backgroundColor={theme.colorDark2}
+                    color={theme.colorDark}
+                />
+            </HStack>
+
         </Center>
     )
 }

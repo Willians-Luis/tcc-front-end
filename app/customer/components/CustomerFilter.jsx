@@ -5,7 +5,7 @@ import { Center } from "@gluestack-ui/themed";
 
 export default function CustomerFilter() {
     return (
-        <Card padding={16} size="md" mt="$3" mx="$4" alignItems="center" 
+        <Card padding={16} size="md" alignItems="center" 
         justifyContent="space-between" flexDirection="row">
             <Center flexDirection="row" gap={10}>
                 <FontAwesome name="filter" size={18} color={theme.colorDarkLight} />

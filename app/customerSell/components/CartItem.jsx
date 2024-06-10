@@ -1,4 +1,4 @@
-import { Box, Card, Pressable, Text } from "@gluestack-ui/themed";
+import { Box, Card, HStack, Pressable, Text } from "@gluestack-ui/themed";
 import { useDispatch, } from "react-redux";
 import { AntDesign } from '@expo/vector-icons';
 import { decreaseQuantity, increaseQuantity, removeProductFromCart } from "@/redux/cart/actions";
@@ -22,23 +22,22 @@ export default function CartItem({ product }) {
     }
 
     return (
-        <Card
-            flexDirection="row"
+        <HStack
             alignItems="center"
             justifyContent="space-between"
             marginBottom={4}
             borderRadius={5}
-            backgroundColor={theme.backgroundColor}
+            backgroundColor={theme.colorLight}
             borderWidth={1}
-            borderColor={theme.colorLight}
+            borderColor={theme.colorText}
             p={0}
             paddingLeft={8}
         >
-            <Text color={theme.colorLight} fontWeight="bold">
+            <Text color={theme.colorText} fontWeight="bold">
                 {product.nome}
             </Text>
             <Box flexDirection="row" gap={8}>
-                <Text color={theme.colorLight} fontWeight="bold">
+                <Text color={theme.colorText} fontWeight="bold">
                     {numberForMoney(product.valorVenda)}
                 </Text>
                 <Box
@@ -48,16 +47,16 @@ export default function CartItem({ product }) {
                     borderWidth={1}
                     gap={8}
                     borderRadius={8}
-                    borderColor={theme.colorLight}
+                    borderColor={theme.colorText}
                 >
                     <Pressable
                         onPress={handleDecreaseQuantityClick}
                         alignItems="center"
                         width={24}
                     >
-                        <Text color={theme.colorLight} fontWeight="bold" fontSize={18}>-</Text>
+                        <Text color={theme.colorText} fontWeight="bold" fontSize={18}>-</Text>
                     </Pressable>
-                    <Text color={theme.colorLight} fontWeight="bold">
+                    <Text color={theme.colorText} fontWeight="bold">
                         {product.quantidade}
                     </Text>
                     <Pressable
@@ -65,14 +64,14 @@ export default function CartItem({ product }) {
                         alignItems="center"
                         width={24}
                     >
-                        <Text color={theme.colorLight} fontWeight="bold">+</Text>
+                        <Text color={theme.colorText} fontWeight="bold">+</Text>
                     </Pressable>
                 </Box>
                 <Pressable onPress={handleRemoveClick}>
-                    <AntDesign name="delete" size={24} color={theme.colorLight} />
+                    <AntDesign name="delete" size={24} color={theme.colorText} />
                 </Pressable>
             </Box>
 
-        </Card>
+        </HStack>
     )
 }

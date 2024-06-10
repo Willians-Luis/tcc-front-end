@@ -56,7 +56,7 @@ export default function ShoppingCart({ customer }) {
     }, [])
 
     return (
-        <Box width="$full" borderRadius={10}>
+        <Box width="$full" borderRadius={10} marginTop={10} px={8}>
             <Box height={125}>
                 {products?.length > 0
                     ? <FlatList
@@ -77,7 +77,7 @@ export default function ShoppingCart({ customer }) {
 
             </Box>
             <Box
-                display={products?.length > 0 ? "flex" : "none"}
+                borderRadius={5}
                 flexDirection="row"
                 justifyContent="space-between"
                 alignItems="center"
@@ -87,19 +87,22 @@ export default function ShoppingCart({ customer }) {
                 <Box
                     flexDirection="row"
                     alignItems="center"
+                    
                     px={4}
                     gap={8}
                 >
-                    <Text color={theme.colorLight} fontWeight="bold">Valor Total:</Text>
-                    <Text color={theme.colorLight} fontWeight="bold">
+                    <Text color={theme.colorText} fontWeight="bold">Valor Total:</Text>
+                    <Text color={theme.colorText} fontWeight="bold">
                         {numberForMoney(productsTotalPrice)}
                     </Text>
                 </Box>
                 <Button
                     onPress={() => setShowModalConfirm(true)}
+                    isDisabled={!products?.length > 0}
                     title="Registrar"
                     height={35}
-                    bgColor={theme.colorLight}
+                    bgColor={theme.colorDark}
+                    color={theme.colorLight}
                 />
             </Box>
 

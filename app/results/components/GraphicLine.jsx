@@ -25,7 +25,7 @@ function ToolTip({ x, y }) {
 
 export default function GraphicLine() {
     const { state, isActive } = useChartPressState({ x: 0, y: { price: 0 } })
-    const font = useFont(require("../../../fonts/Roboto-Regular.ttf"))
+    const font = useFont(require("../../../assets/fonts/Roboto-Regular.ttf"))
 
     const animatedText = useAnimatedProps(() => {
         return {

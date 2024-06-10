@@ -1,6 +1,7 @@
 import { apiGetAllCategories, apiGetCategory } from "@/api/categoryRoute"
 import theme from "@/style/theme"
-import { Box, FlatList, FormControl, FormControlError, FormControlErrorText, Pressable, Text } from "@gluestack-ui/themed"
+import { Feather } from "@expo/vector-icons"
+import { Box, FlatList, FormControl, FormControlError, FormControlErrorText, HStack, Pressable, Text } from "@gluestack-ui/themed"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
@@ -57,7 +58,12 @@ export default function CategoryFilter({
     }, [])
 
     return (
-        <Box gap={4} width="$full">
+        <Box gap={4} width="$full" ml={16}>
+            <HStack ml={6} alignItems="center" >
+                <Text color={theme.colorDarkLight}>Categorias</Text>
+                <Feather name="arrow-right" size={16} color={theme.colorDarkLight} />
+            </HStack>
+            
             <FormControl isInvalid={invalid}>
                 <FlatList
                     horizontal

@@ -43,8 +43,7 @@ export default function SalesPayments({ customer }) {
         >
             <Text color={theme.colorText}>{numberForMoney(valueSales)}</Text>
             <Pressable
-                px={4}
-                borderWidth={1}
+                p={8}
                 borderRadius={5}
                 alignItems="center"
                 padding={5}
@@ -52,7 +51,7 @@ export default function SalesPayments({ customer }) {
                 $active-bgColor={theme.colorDarkLight}
                 onPress={() => setShowModal(true)}
             >
-                <Text color={theme.colorLight} fontWeight="bold">Registrar Pagamento</Text>
+                <Text color={theme.colorLight} fontSize={18}>Registrar pagamento</Text>
             </Pressable>
             <Confirm
                 showModal={showModal}

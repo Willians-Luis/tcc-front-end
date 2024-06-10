@@ -1,27 +1,24 @@
-import { Box, Pressable } from "@gluestack-ui/themed";
+import { Pressable, Text } from "@gluestack-ui/themed";
 import { AntDesign } from '@expo/vector-icons';
 import theme from "@/style/theme";
 
-export default function RoundButton({ onPress, ...rest }) {
+export default function RoundButton({title = "Adicionar", onPress, ...rest }) {
     return (
-        <Box 
-            mt={8} 
-            w="$full" 
-            justifyContent="center" 
-            alignItems="center"
-        >
             <Pressable
                 onPress={onPress}
+                flexDirection="row"
                 backgroundColor={theme.colorDark}
-                height={40}
-                width={40}
-                borderRadius="$full"
+                width={"100%"}
+                borderRadius={5}
                 justifyContent="center"
                 alignItems="center"
+                $active-backgroundColor={theme.colorDarkLight}
+                p={8}
                 {...rest}
+
             >
-                <AntDesign name="plus" size={36} color={theme.colorLight} />
+                {/* <AntDesign name="plus" size={20} color={theme.colorLight} /> */}
+                <Text color={theme.colorLight} fontSize={18}>{title}</Text>
             </Pressable>
-        </Box>
     )
 }

@@ -8,29 +8,39 @@ import {
 } from '@gluestack-ui/themed';
 import theme from '@/style/theme';
 
-export function InputCustom({ ErrorMessage = null, isInvalid, placeholder, keyboardType, onChangeText, ...rest }) {
+export function InputCustom({ 
+    ErrorMessage = null, 
+    isInvalid, 
+    keyboardType, 
+    onChangeText, 
+    value,
+    placeholder, 
+    color=theme.colorDark,
+    placeholderTextColor=theme.colorDarkLight, 
+    ...rest 
+}) {
     const invalid = !!ErrorMessage || isInvalid
     return (
-        <FormControl isInvalid={invalid}>
+        <FormControl isInvalid={invalid} width={"100%"}>
             <Input 
                 size="lg" 
                 width={350}
                 isInvalid={invalid} 
-                borderWidth={2} 
-                borderColor={theme.colorLight}
                 $invalid-borderColor="red"    
                 {...rest} 
             >
                 <InputField 
-                    color={theme.colorLight}
+                    color={color}
                     keyboardType={keyboardType}
                     onChangeText={onChangeText}
                     placeholder={placeholder}
+                    placeholderTextColor={placeholderTextColor}
+                    value={value}
                     
                 />
             </Input>
             <FormControlError>
-                <FormControlErrorText>
+                <FormControlErrorText color='#f00'>
                     {ErrorMessage}
                 </FormControlErrorText>
             </FormControlError>
