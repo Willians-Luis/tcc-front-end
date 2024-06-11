@@ -19,17 +19,15 @@ export default function CustomerSell() {
     return (
         <VStack flex={1} backgroundColor={theme.backgroundColor}>
             <Box flex={1} py={16} gap={16}>
-                <Container title={customer.nome} icon="user" p={4} borderBottomWidth={0}/>
+                <Container title={customer.nome} icon="user" p={4} borderBottomWidth={0} pb={12} />
 
                 <CategoryFilter onPress={handleCategory} />
 
                 <Container title="Produtos" icon="list" gap={4} borderBottomWidth={0} px={8}>
-                    
-                    <ProductListSell
-                        data={data}
-                    />
+                    <ProductListSell data={data}/>
                 </Container>
-                <Container title="Carrinho" borderBottomWidth={0}>
+                
+                <Container title="Carrinho" borderBottomWidth={0} pb={2}>
                     <ShoppingCart customer={customer} />
                 </Container>
             </Box>

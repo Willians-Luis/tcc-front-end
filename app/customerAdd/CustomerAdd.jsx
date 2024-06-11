@@ -48,6 +48,7 @@ export default function CustomerAdd() {
                             ErrorMessage={errors.nome?.message}
                             onChangeText={onChange}
                             borderColor={theme.colorDarkLight}
+                            color={theme.colorDark}
                         />
                     )}
                 />
@@ -59,8 +60,9 @@ export default function CustomerAdd() {
                         <InputCustom
                             placeholder="Telefone (Opcional)"
                             onChangeText={onChange}
-                            keyboardType="numeric"
+                            //keyboardType="numeric"
                             borderColor={theme.colorDarkLight}
+                            color={theme.colorDark}
                         />
                     )}
                 />

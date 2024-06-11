@@ -2,6 +2,7 @@ import { Box, Card , Text } from "@gluestack-ui/themed";
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 import { numberForMoney } from "@/services/numberForMoney";
 import theme from "@/style/theme";
+import FormattedMoney from "@/components/FormattedMoney";
 
 export default function Panel({name, icon, iconColor, value}) {
     return (
@@ -18,12 +19,11 @@ export default function Panel({name, icon, iconColor, value}) {
                 <Feather name={icon} size={20} color={iconColor} />
                 <Text>{name}</Text>
             </Box>
-            <Text 
+            <FormattedMoney 
+                value={value}
                 fontWeight="bold" 
-                color={value >= 0 ? theme.colorText : "#f00"}
-            >
-                {numberForMoney(value)}
-            </Text>
+                color={value >= 0 ? (icon === "dollar-sign" ? "#29b806" :theme.colorText) : "#f00"}
+             />
         </Card>
     )
 }

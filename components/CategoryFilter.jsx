@@ -39,8 +39,9 @@ export default function CategoryFilter({
     const invalid = !!ErrorMessage
 
     const fetchCategories = async () => {
-        const data = await apiGetAllCategories(user.accessToken)
-        setData(data)
+        const response = await apiGetAllCategories(user.accessToken)
+        setData(response)
+        response ? fetchCategory(response[0].id) : null
     }
 
     const fetchCategory = async (id) => {
@@ -59,8 +60,8 @@ export default function CategoryFilter({
     }, [])
 
     return (
-        <Box gap={4} width="$full" pl={16} {...rest}>
-            <HStack alignItems="center" >
+        <Box gap={4} width="$full" pl={8} {...rest}>
+            <HStack alignItems="center" ml={2}>
                 <Text color={theme.colorDarkLight}>Categorias</Text>
                 <Feather name="arrow-right" size={16} color={theme.colorDarkLight} />
             </HStack>

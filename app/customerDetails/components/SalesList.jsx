@@ -37,7 +37,7 @@ export default function SalesList({ data }) {
     }
     
     return (
-        <Box width="$full" height={305} >
+        <Box width="$full" height={350} mb={14} >
             {newdata?.length > 0
                 ? <FlatList
                     showsVerticalScrollIndicator={false}

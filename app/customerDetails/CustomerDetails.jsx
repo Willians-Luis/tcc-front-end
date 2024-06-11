@@ -1,4 +1,4 @@
-import { Box, Text } from "@gluestack-ui/themed";
+import { Box, HStack, Text } from "@gluestack-ui/themed";
 import SalesList from "./components/SalesList";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -32,21 +32,23 @@ export default function CustomerDetails() {
             {data
                 ? <Box flex={1} py={16} gap={16}>
                     <Container title="Cliente" icon="user" borderBottomWidth={0} pb={7}>
-                        <Box flexDirection="row" justifyContent="space-between" px={16} >
+                        <Box flexDirection="row" justifyContent="space-between" px={16} mb={10}>
                             <Text color={theme.colorText}>
                                 {data.nome}
                             </Text>
-                            <Text color={theme.colorText}>
-                                {data.telefone ? data.telefone : ""}
-                            </Text>
+
+                            <HStack alignItems="center" gap={4}>
+                                {data.telefone && <Feather name="phone" size={14} color={theme.colorDarkLight} />}
+                                {data.telefone && <Text color={theme.colorText2} fontSize={14}>{data.telefone}</Text>}
+                            </HStack>
                             <Box flexDirection="row" gap={20} >
-                                <Feather name="edit" size={20} color={theme.colorText} />
-                                <AntDesign name="delete" size={20} color={theme.colorText} />
+                                <Feather name="edit" size={20} color={theme.colorDark} />
+                                <AntDesign name="delete" size={20} color={theme.colorDark} />
                             </Box>
                         </Box>
                     </Container>
 
-                    <Box px={16}>
+                    <Box px={8}>
                         <RoundButton
                             title="Adicionar venda"
                             onPress={() => { navigation.navigate("customerSell/CustomerSell") }}

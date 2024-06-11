@@ -1,7 +1,8 @@
+import FormattedMoney from "@/components/FormattedMoney";
 import { calculateDebtAmount } from "@/services/calculateDebtAmount"
 import { numberForMoney } from "@/services/numberForMoney"
 import theme from "@/style/theme"
-import { FontAwesome, AntDesign, Feather } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 import { Text, Pressable, HStack, Box } from "@gluestack-ui/themed"
 
 export default function ItemCustomerList({ item, onPress }) {
@@ -18,17 +19,23 @@ export default function ItemCustomerList({ item, onPress }) {
             borderColor={theme.backgroundColor}
         >
             <HStack alignItems="center" gap={10}>
-                <Feather name="user" size={18} color={theme.colorDarkLight} />
+                {/* <Feather name="user" size={18} color={theme.colorDarkLight} /> */}
                 <Box>
                     <Text color={theme.colorText} fontWeight="bold">{item.nome}</Text>
-                    <Text color={theme.colorText2} fontSize={11}>{item.telefone}</Text>
+                    <HStack alignItems="center" gap={4}>
+                        <Feather name="phone" size={12} color={theme.colorText2} />
+                        <Text color={theme.colorText2} fontSize={11}>{item.telefone}</Text>
+                    </HStack>
+
                 </Box>
             </HStack>
 
             <HStack alignItems="center" gap={20}>
-                <Text color={valueSales > 0 ? "#f00" : theme.colorText2} fontSize={15}>
-                    {numberForMoney(valueSales)}
-                </Text>
+                <FormattedMoney
+                    value={valueSales}
+                    color={valueSales > 0 ? "#f00" : theme.colorText2}
+                    fontSize={15}
+                />
                 <AntDesign name="right" size={14} color={theme.colorDarkLight} />
             </HStack>
 

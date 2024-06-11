@@ -9,6 +9,7 @@ import Alert from "@/components/Alert";
 import Confirm from "@/components/Confirm";
 import theme from "@/style/theme";
 import { numberForMoney } from "@/services/numberForMoney";
+import FormattedMoney from "@/components/FormattedMoney";
 
 
 export default function SalesPayments({ customer }) {
@@ -31,7 +32,7 @@ export default function SalesPayments({ customer }) {
             if (resp) dispatch(addCustomerAction(resp))
             setShowModalAlert(true)
         }
-        
+
     }
 
     return (
@@ -40,10 +41,12 @@ export default function SalesPayments({ customer }) {
             alignItems="center"
             justifyContent="space-between"
             px={20}
+            mb={12}
         >
-            <Text color={theme.colorText}>{numberForMoney(valueSales)}</Text>
+            <FormattedMoney value={valueSales} />
             <Pressable
-                p={8}
+                py={8}
+                px={16}
                 borderRadius={5}
                 alignItems="center"
                 padding={5}

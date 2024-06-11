@@ -5,6 +5,7 @@ import theme from "@/style/theme";
 
 
 export default function Footer() {
+    
     return (
         <Card
             variant="elevated"
@@ -22,15 +23,15 @@ export default function Footer() {
         >
             <Link href={"results/Results"}>
                 <Center>
-                    <Feather name="bar-chart" size={24} color={theme.colorDark} />
-                    <Text fontSize={12} fontWeight="bold" color={theme.colorDark}>Resultados</Text>
+                    <Feather name="bar-chart" size={24} color={theme.colorText} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorText}>Resultados</Text>
                 </Center>
             </Link>
 
             <Link href={"customer/Customer"}>
                 <Center>
-                    <Feather name="user" size={24} color={theme.colorDark} />
-                    <Text fontSize={12} fontWeight="bold" color={theme.colorDark}>Clientes </Text>
+                    <Feather name="user" size={24} color={theme.colorText} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorText}>Clientes </Text>
                 </Center>
             </Link>
 
@@ -49,16 +50,16 @@ export default function Footer() {
 
             <Link href={"product/Product"} >
                 <Center>
-                    <Feather name="list" size={24} color={theme.colorDark} />
-                    <Text fontSize={12} fontWeight="bold" color={theme.colorDark}>Produtos</Text>
+                    <Feather name="list" size={24} color={theme.colorText} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorText}>Produtos</Text>
                 </Center>
             </Link>
 
 
             <Link href={"cashFlow/CashFlow"} >
                 <Center>
-                    <Feather name="dollar-sign" size={24} color={theme.colorDark} />
-                    <Text fontSize={12} fontWeight="bold" color={theme.colorDark}>Financeiro</Text>
+                    <Feather name="dollar-sign" size={24} color={theme.colorText} />
+                    <Text fontSize={12} fontWeight="bold" color={theme.colorText}>Financeiro</Text>
                 </Center>
             </Link>
         </Card>

@@ -1,24 +1,23 @@
 import Footer from "@/components/Footer";
-import { Card, Text, VStack } from "@gluestack-ui/themed";
+import { Card, HStack, VStack } from "@gluestack-ui/themed";
 import { Box } from "@gluestack-ui/themed";
 import Panel from "./components/Panel";
 import CashAdd from "./components/CashAdd";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import CashList from "./components/CashList";
-import { apiDeleteExpenses, apiGetExpensesByYearAndMonth, apiPostExpenses } from "@/api/expensesRoute";
+import { apiGetExpensesByYearAndMonth, apiPostExpenses } from "@/api/expensesRoute";
 import Alert from "@/components/Alert";
 import DatePicker from "./components/DatePicker";
 import Loading from "@/components/Loading";
 import { apiGetSalesByYearAndMonth } from "@/api/saleRoute";
-import Confirm from "@/components/Confirm";
 import theme from "@/style/theme";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function CashFlow() {
     const { user } = useSelector(rootReducer => rootReducer.userReducer)
     const [data, setData] = useState(false)
     const [showModal, setShowModal] = useState(false)
-    const [showModalConfirm, setShowModalConfirm] = useState(false)
     const [message, setMessage] = useState("")
 
     const [entrada, setEntrada] = useState(0)
@@ -58,7 +57,7 @@ export default function CashFlow() {
                     "tipo": "entrada"
                 }, {
                     "id": "abc2",
-                    "descricao": "Custos/Produtos",
+                    "descricao": "Custos/produtos",
                     "valor": valueCost,
                     "tipo": "saida"
                 }, ...response1]
@@ -98,31 +97,14 @@ export default function CashFlow() {
         }
     }
 
-
-    const deleteExpense = async (id) => {
-        const response = await apiDeleteExpenses(id, user.accessToken)
-        if (response) {
-            setMessage("Valor excluido com sucesso!")
-            setShowModal(true)
-            getExpensesAndSaleByYearAndMonth()
-        } else {
-            setMessage("Não foi possível excluir o valor!")
-        }
-    }
-
     const handleDatePickerMonth = (item) => {
         setData(false)
         setClickedMonth(item)
-
     }
 
     const handleDatePickerYear = (item) => {
         setData(false)
         setClickedYear(item)
-    }
-
-    const handleDeleteExpense = (id) => {
-        setShowModalConfirm(true)
     }
 
     useEffect(() => {
@@ -131,17 +113,21 @@ export default function CashFlow() {
 
     return (
         <VStack flex={1}>
-            {data && (<Box flex={1} p={8} gap={16}>
+            {data && (<Box flex={1} py={16} px={8} gap={16}>
                 <Box gap={8} flexDirection="row" justifyContent="center">
-                    <Panel name="Entradas" icon="arrow-up-circle" value={entrada} iconColor="#29b806"/>
-                    <Panel name="Saidas" icon="arrow-down-circle" value={saida} iconColor="#db1d04"/>
+                    <Panel name="Entradas" icon="arrow-up-circle" value={entrada} iconColor="#29b806" />
+                    <Panel name="Saidas" icon="arrow-down-circle" value={saida} iconColor="#db1d04" />
                     <Panel name="Total" icon="dollar-sign" value={total} />
                 </Box>
 
-                <Card backgroundColor={theme.colorDark}>
+                <Card backgroundColor={theme.colorDark} pb={8}>
                     <Box gap={8}>
                         <DatePicker data={dataYears} datePicker={handleDatePickerYear} isClicked={clickedYear} />
                         <DatePicker data={dataMonths} datePicker={handleDatePickerMonth} isClicked={clickedMonth} />
+                        <HStack justifyContent="space-between">
+                            <AntDesign name="arrowleft" size={14} color={theme.colorLight} />
+                            <AntDesign name="arrowright" size={14} color={theme.colorLight} />
+                        </HStack>
                     </Box>
                 </Card>
 
@@ -149,16 +135,9 @@ export default function CashFlow() {
                     <CashAdd registerExpenses={registerExpenses} />
                 </Card>
 
-                <CashList data={data} handleDeleteExpense={handleDeleteExpense}/>
+                <CashList data={data} getExpensesAndSaleByYearAndMonth={getExpensesAndSaleByYearAndMonth} />
 
                 <Footer />
-
-                <Confirm 
-                    showModal={showModalConfirm}
-                    setShowModal={setShowModalConfirm}
-                    onPress={deleteExpense}
-                    message={"Deseja excluir este registro?"}
-                />
 
                 <Alert
                     showModal={showModal}

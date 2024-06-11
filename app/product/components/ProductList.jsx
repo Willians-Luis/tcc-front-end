@@ -8,19 +8,25 @@ import Loading from "@/components/Loading"
 
 export default function ProductList({ data = false }) {
     return (
-        <Card height={"60%"} pt={0} px={4} size="md" mx={16}>
-            <HStack py={14} px={8} justifyContent="space-between">
+        <Card height={"60%"} pt={0} px={8} size="md" mx={8}>
+            <HStack py={14} justifyContent="space-between">
 
-                <HStack gap={10} alignItems="center">
+                <HStack gap={4} alignItems="center">
                     <Feather name="list" size={18} color={theme.colorDarkLight} />
                     <Text fontSize={18} fontWeight="bold" color={theme.colorText}>Produto</Text>
                 </HStack>
 
-                <HStack gap={8} alignItems="center">
-                    <Feather name="dollar-sign" size={18} color={theme.colorDarkLight} />
-                    <Text fontSize={18} fontWeight="bold" color={theme.colorText}>Preço</Text>
-                </HStack>
+                <HStack gap={20}>
+                    <HStack gap={4} alignItems="center">
+                        <Feather name="dollar-sign" size={18} color={theme.colorDarkLight} />
+                        <Text fontSize={18} fontWeight="bold" color={theme.colorText}>Preço</Text>
+                    </HStack>
 
+                    <HStack gap={4} alignItems="center" mr={5}>
+                        <Feather name="tool" size={18} color={theme.colorDarkLight} />
+                        <Text fontSize={16} fontWeight="bold" color={theme.colorText}>Estoque</Text>
+                    </HStack>
+                </HStack>
             </HStack>
 
             {data?.length > 0 && (<FlatList

@@ -5,6 +5,7 @@ import theme from "@/style/theme"
 import { numberForMoney } from "@/services/numberForMoney"
 import { formatDate } from "@/services/formatDate"
 import Confirm from "@/components/Confirm"
+import FormattedMoney from "@/components/FormattedMoney"
 
 export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) {
     const [showModalConfirmDelete, setShowModalConfirmDelete] = useState(false)
@@ -17,7 +18,7 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
             justifyContent="space-between"
             alignItems="center"
             px={10}
-            py={12}
+            py={8}
             borderBottomWidth={2}
             borderColor={theme.backgroundColor}
         >
@@ -49,28 +50,30 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
                     <Text color={theme.colorText2} fontSize={13}>
                         Qtd: {item.quantidade}
                     </Text>
-                    <Text color={theme.colorText2} fontSize={13}>
-                        {numberForMoney((item.fk.produto.valorVenda) * item.quantidade)}
-                    </Text>
+                    <FormattedMoney 
+                        value={item.fk.produto.valorVenda * item.quantidade}
+                        color={theme.colorText2} fontSize={13}
+                    />
                 </Box>
             </Box>
             <Pressable
-                p={2}
-                borderWidth={1}
+                p={3}
+                //borderWidth={1}
                 borderRadius={5}
-                borderColor={theme.colorText}
+                //borderColor={theme.colorDark}
+                backgroundColor={theme.colorDark}
                 alignItems="center"
                 $active-bgColor={theme.colorDarkLight}
                 onPress={() => setShowModalConfirmPayment(true)}
             >
-                <Text fontSize={12} color={theme.colorText}>Registrar</Text>
-                <Text fontSize={12} color={theme.colorText}>Pagamento</Text>
+                <Text fontSize={12} color={theme.colorLight}>Registrar</Text>
+                <Text fontSize={12} color={theme.colorLight}>pagamento</Text>
             </Pressable>
             <Pressable
                 onPress={() => setShowModalConfirmDelete(true)}
                 p={4}
             >
-                <AntDesign name="delete" size={24} color={theme.colorText} />
+                <AntDesign name="delete" size={24} color={theme.colorDark} />
             </Pressable>
 
             <Confirm

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { addProductToCart } from "@/redux/cart/actions"
 import theme from "@/style/theme"
 import { numberForMoney } from "@/services/numberForMoney"
+import FormattedMoney from "@/components/FormattedMoney"
 
 export default function ItemProductListSell({ product }) {
     const dispatch = useDispatch()
@@ -38,9 +39,7 @@ export default function ItemProductListSell({ product }) {
                     {product.nome} {product?.tipo?.nome ? product.tipo.nome : ""}
                 </Text>
 
-                <Text color={product.textColor}>
-                    {numberForMoney(product.valorVenda)}
-                </Text>
+                <FormattedMoney value={product.valorVenda} color={product.textColor}/>
             </Box>
 
             <Pressable

@@ -57,8 +57,8 @@ export default function ShoppingCart({ customer }) {
     }, [])
 
     return (
-        <Box width="$full" borderRadius={10} marginTop={10} px={8}>
-            <Box height={125}>
+        <Box width="$full" borderRadius={10} px={8} mt={10} pb={0}>
+            <Box height={135}>
                 {products?.length > 0
                     ? <FlatList
                         showsVerticalScrollIndicator={false}
@@ -82,8 +82,10 @@ export default function ShoppingCart({ customer }) {
                 flexDirection="row"
                 justifyContent="space-between"
                 alignItems="center"
-                height={45}
                 px={4}
+                mt={4}
+                pt={8}
+                pb={12}
             >
                 <Box
                     flexDirection="row"

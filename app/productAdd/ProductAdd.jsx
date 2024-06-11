@@ -78,7 +78,7 @@ export default function ProductAdd() {
                 )}
             />
 
-            <Box gap={12} flex={1} alignItems="center" padding={16}>
+            <Box gap={12} flex={1} alignItems="center" padding={8}>
 
                 <Controller
                     control={control}

@@ -1,11 +1,10 @@
 import { Box, Card, Text } from "@gluestack-ui/themed";
 import { AntDesign, Feather } from '@expo/vector-icons';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import theme from "@/style/theme";
 
 export default function Container({ children, title, icon = "shopping-cart", ...rest }) {
     return (
-        <Card pt={0} px={0} size="md" mx={16}>
+        <Card py={0} px={0} size="md" mx={8}>
             <Box
                 flexDirection="row"
                 alignItems="center"

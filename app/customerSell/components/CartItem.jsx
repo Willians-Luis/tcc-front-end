@@ -4,6 +4,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { decreaseQuantity, increaseQuantity, removeProductFromCart } from "@/redux/cart/actions";
 import { numberForMoney } from "@/services/numberForMoney";
 import theme from "@/style/theme";
+import FormattedMoney from "@/components/FormattedMoney";
 
 
 export default function CartItem({ product }) {
@@ -30,33 +31,32 @@ export default function CartItem({ product }) {
             backgroundColor={theme.colorLight}
             borderWidth={1}
             borderColor={theme.colorText}
-            p={0}
+            p={2}
             paddingLeft={8}
         >
             <Text color={theme.colorText} fontWeight="bold">
                 {product.nome}
             </Text>
-            <Box flexDirection="row" gap={8}>
-                <Text color={theme.colorText} fontWeight="bold">
-                    {numberForMoney(product.valorVenda)}
-                </Text>
+            <Box flexDirection="row" gap={8} alignItems="center">
+                <FormattedMoney value={product.valorVenda} color={theme.colorText} fontWeight="bold"/>
                 <Box
                     flexDirection="row"
                     alignItems="center"
                     justifyContent="space-between"
-                    borderWidth={1}
+                    //borderWidth={1}
                     gap={8}
                     borderRadius={8}
-                    borderColor={theme.colorText}
+                    //borderColor={theme.colorDark}
+                    backgroundColor={theme.colorDark}
                 >
                     <Pressable
                         onPress={handleDecreaseQuantityClick}
                         alignItems="center"
                         width={24}
                     >
-                        <Text color={theme.colorText} fontWeight="bold" fontSize={18}>-</Text>
+                        <Text color={theme.colorLight} fontWeight="bold" fontSize={18}>-</Text>
                     </Pressable>
-                    <Text color={theme.colorText} fontWeight="bold">
+                    <Text color={theme.colorLight} fontWeight="bold">
                         {product.quantidade}
                     </Text>
                     <Pressable
@@ -64,11 +64,11 @@ export default function CartItem({ product }) {
                         alignItems="center"
                         width={24}
                     >
-                        <Text color={theme.colorText} fontWeight="bold">+</Text>
+                        <Text color={theme.colorLight} fontWeight="bold">+</Text>
                     </Pressable>
                 </Box>
                 <Pressable onPress={handleRemoveClick}>
-                    <AntDesign name="delete" size={24} color={theme.colorText} />
+                    <AntDesign name="delete" size={24} color={theme.colorDark} />
                 </Pressable>
             </Box>
 
