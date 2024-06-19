@@ -5,7 +5,7 @@ import theme from "@/style/theme"
 
 export default function CustomerList({ data, onPress }) {
     return (
-        <Card height={"71%"} pt={0} px={0} size="md" >
+        <Card height={"70.5%"} pt={0} px={0} size="md" >
             <HStack py={14} px={8} justifyContent="space-between" borderBottomWidth={2} borderColor={theme.backgroundColor}>
 
                 <HStack gap={4} alignItems="center">

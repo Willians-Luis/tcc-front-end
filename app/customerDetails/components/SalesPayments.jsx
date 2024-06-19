@@ -47,7 +47,7 @@ export default function SalesPayments({ customer }) {
             <Pressable
                 py={8}
                 px={16}
-                borderRadius={5}
+                borderRadius={8}
                 alignItems="center"
                 padding={5}
                 backgroundColor={theme.colorDark}

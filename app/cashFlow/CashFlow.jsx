@@ -25,8 +25,8 @@ export default function CashFlow() {
     const [total, setTotal] = useState(0)
 
     const date = new Date()
-    const dataYears = [2024]
-    const dataMonths = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+    const dataMonths = ["Jan.", "Fev.", "Mar.", "Abr.", "Mai.", "Jun.", "Jul."]
+    const dataMonthsNumber = [1, 2, 3, 4, 5, 6, 7]
 
     const [clickedMonth, setClickedMonth] = useState(dataMonths[date.getMonth()])
     const [clickedYear, setClickedYear] = useState(date.getFullYear())
@@ -63,10 +63,10 @@ export default function CashFlow() {
                 }, ...response1]
                 const totalIncome = arrayData.filter((data) => data.tipo === "entrada").reduce(
                     (acc, item) => acc + item.valor, 0
-                );
+                )
                 const totalIncome2 = arrayData.filter((data) => data.tipo === "saida").reduce(
                     (acc, item) => acc + item.valor, 0
-                );
+                )
                 setEntrada(totalIncome)
                 setSaida(totalIncome2)
                 setTotal(totalIncome - totalIncome2)
@@ -102,11 +102,6 @@ export default function CashFlow() {
         setClickedMonth(item)
     }
 
-    const handleDatePickerYear = (item) => {
-        setData(false)
-        setClickedYear(item)
-    }
-
     useEffect(() => {
         getExpensesAndSaleByYearAndMonth()
     }, [clickedMonth, clickedYear])
@@ -122,8 +117,9 @@ export default function CashFlow() {
 
                 <Card backgroundColor={theme.colorDark} pb={8}>
                     <Box gap={8}>
-                        <DatePicker data={dataYears} datePicker={handleDatePickerYear} isClicked={clickedYear} />
-                        <DatePicker data={dataMonths} datePicker={handleDatePickerMonth} isClicked={clickedMonth} />
+
+                        <DatePicker date={dataMonths} datePicker={handleDatePickerMonth} isClicked={clickedMonth} />
+
                         <HStack justifyContent="space-between">
                             <AntDesign name="arrowleft" size={14} color={theme.colorLight} />
                             <AntDesign name="arrowright" size={14} color={theme.colorLight} />

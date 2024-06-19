@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, HStack, Text, VStack } from "@gluestack-ui/themed";
+import { Card, HStack, Pressable, Text, VStack } from "@gluestack-ui/themed";
 import ProductList from "./components/ProductList";
 import CategoryFilter from "@/components/CategoryFilter";
 import Footer from "@/components/Footer";
@@ -24,19 +24,25 @@ export default function Product() {
             gap={16}
             py={16}
         >
-            <Card mx={8} px={8}>
+            <Card mx={8} px={8} borderRadius={8}>
                 <HStack justifyContent="space-between" alignItems="center">
                     <HStack alignItems="center" gap={4} >
                         <Feather name="list" size={18} color={theme.colorDarkLight} />
-                        <Text fontWeight="bold" color={theme.colorText}>Categorias</Text>
+                        <Text fontWeight="bold" fontSize={18} color={theme.colorText}>Categorias</Text>
                     </HStack>
                     <HStack alignItems="center" gap={16}>
-                        <HStack alignItems="center" gap={2} /*backgroundColor={theme.colorDark}*/
-                            borderRadius={5} py={4} px={8}>
+                        <Pressable 
+                            onPress={() => { navigation.navigate("categoryAdd/CategoryAdd") }}
+                            flexDirection="row"
+                            alignItems="center"
+                            borderRadius={5} 
+                            gap={2}
+                            py={4} 
+                            px={8}
+                        >
                             <AntDesign name="plus" size={14} color={theme.colorDarkLight} />
                             <Text color={theme.colorDarkLight}>Adicionar</Text>
-                        </HStack>
-                        <AntDesign name="questioncircleo" size={16} color={theme.colorDarkLight} />
+                        </Pressable>
                     </HStack>
                 </HStack>
             </Card>

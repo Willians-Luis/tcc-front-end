@@ -14,7 +14,9 @@ export function Input({
     placeholder, 
     placeholderTextColor,
     keyboardType, 
-    value = null, 
+    onChangeText,
+    type = "text",
+    //value = null, 
     ...rest 
 }) {
     const invalid = !!ErrorMessage || isInvalid
@@ -25,7 +27,7 @@ export function Input({
                 variant="rounded"
                 width={300}
                 isInvalid={invalid} 
-                $invalid-borderColor="red"   
+                $invalid-borderColor="#f00"   
                 borderColor={theme.colorLight}
                 {...rest} 
             >
@@ -34,11 +36,13 @@ export function Input({
                     placeholder={placeholder}
                     placeholderTextColor={placeholderTextColor}
                     keyboardType={keyboardType}
-                    value={value}
+                    type={type}
+                    onChangeText={onChangeText}
+                    //value={value}
                 />
             </GlueInput>
             <FormControlError>
-                <FormControlErrorText>
+                <FormControlErrorText color='#f00'>
                     {ErrorMessage}
                 </FormControlErrorText>
             </FormControlError>

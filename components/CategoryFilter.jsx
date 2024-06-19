@@ -13,7 +13,7 @@ const Item = ({ item, handleCategory, isClicked}) => {
                 p={8}
                 mr={8}
                 alignItems="center"
-                borderRadius={5}
+                borderRadius={8}
                 borderWidth={2}
                 borderColor={theme.colorDark}
                 backgroundColor={isClicked === item.id ? theme.colorLight : theme.colorDark}
@@ -41,7 +41,10 @@ export default function CategoryFilter({
     const fetchCategories = async () => {
         const response = await apiGetAllCategories(user.accessToken)
         setData(response)
-        response ? fetchCategory(response[0].id) : null
+        if (response) {
+            fetchCategory(response[0].id)
+            setIsClicked(response[0].id)
+        }
     }
 
     const fetchCategory = async (id) => {

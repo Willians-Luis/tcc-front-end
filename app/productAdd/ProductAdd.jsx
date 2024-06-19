@@ -136,7 +136,7 @@ export default function ProductAdd() {
                     name="descricao"
                     render={({ field: { onChange } }) => (
                         <InputCustom
-                            placeholder="Descrição (Opicional)"
+                            placeholder="Descrição (Opcional)"
                             ErrorMessage={errors.descricao?.message}
                             onChangeText={onChange}
                         />
@@ -164,6 +164,7 @@ export default function ProductAdd() {
                         color={theme.colorDark}
                         backgroundColor={theme.colorLight}
                         onPress={() => navigation.navigate("product/Product")}
+                        borderRadius={8}
                     />
                     <Button
                         title="Registrar"
@@ -171,6 +172,7 @@ export default function ProductAdd() {
                         color={theme.colorLight}
                         backgroundColor={theme.colorDark}
                         onPress={handleSubmit(productRegister)}
+                        borderRadius={8}
                     />
                 </Box>
             </Box>

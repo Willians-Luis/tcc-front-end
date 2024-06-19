@@ -38,6 +38,7 @@ export default function CashAdd({ registerExpenses }) {
                             height={35}
                             width={"91%"}
                             color={theme.colorLight}
+                            backgroundColor={theme.colorDark}
                         />
                     </Box>
                 )}
@@ -61,6 +62,7 @@ export default function CashAdd({ registerExpenses }) {
                                 variant="underlined"
                                 width={"88%"}
                                 color={theme.colorLight}
+                                backgroundColor={theme.colorDark}
                             />
                         </Box>
 

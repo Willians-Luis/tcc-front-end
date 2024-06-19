@@ -8,7 +8,7 @@ import Loading from "@/components/Loading"
 
 export default function ProductList({ data = false }) {
     return (
-        <Card height={"60%"} pt={0} px={8} size="md" mx={8}>
+        <Card height={"60%"} pt={0} px={8} size="md" mx={8} borderRadius={8}>
             <HStack py={14} justifyContent="space-between">
 
                 <HStack gap={4} alignItems="center">
@@ -24,7 +24,7 @@ export default function ProductList({ data = false }) {
 
                     <HStack gap={4} alignItems="center" mr={5}>
                         <Feather name="tool" size={18} color={theme.colorDarkLight} />
-                        <Text fontSize={16} fontWeight="bold" color={theme.colorText}>Estoque</Text>
+                        <Text fontSize={18} fontWeight="bold" color={theme.colorText}>Estoque</Text>
                     </HStack>
                 </HStack>
             </HStack>
@@ -43,7 +43,7 @@ export default function ProductList({ data = false }) {
             )}
 
             {data?.length === 0 && (<Center flex={1}>
-                <Text color={theme.colorText}>Escolha uma categoria!</Text>
+                <Text color={theme.colorText}>Nenhum registro encontrado!</Text>
             </Center>
             )}
 

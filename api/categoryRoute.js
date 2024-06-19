@@ -1,7 +1,7 @@
 import axios from "axios";
 import url from "./apiURL";
 
-export const apiPostCategories = async (category, token) => {
+export const apiPostCategory = async (category, token) => {
     try {
         const {data} = await axios.post(url('tipoProduto'), category, {
             headers: {

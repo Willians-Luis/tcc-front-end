@@ -4,7 +4,7 @@ import theme from "@/style/theme";
 
 export default function Container({ children, title, icon = "shopping-cart", ...rest }) {
     return (
-        <Card py={0} px={0} size="md" mx={8}>
+        <Card py={0} px={0} size="md" mx={8} borderRadius={8}>
             <Box
                 flexDirection="row"
                 alignItems="center"
@@ -22,7 +22,7 @@ export default function Container({ children, title, icon = "shopping-cart", ...
                         {title}
                     </Text>
                 </Box>
-                <AntDesign name="questioncircleo" size={16} color={theme.colorDarkLight} />
+                {/* <AntDesign name="questioncircleo" size={16} color={theme.colorDarkLight} /> */}
             </Box>
             <Box>
                 {children}

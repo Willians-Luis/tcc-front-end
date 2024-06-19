@@ -32,6 +32,9 @@ export default function ProductDetails({ showModal, setShowModal, item }) {
           </ModalCloseButton>
         </ModalHeader>
         <ModalBody>
+        <Text color={item.textColor}>
+            Categoria: {item.tipo.nome}
+          </Text>
           <Text color={item.textColor}>
             Quant. disponível: {item.quantidade}
           </Text>

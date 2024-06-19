@@ -1,10 +1,10 @@
-import { Box, Card, HStack, Pressable, Text } from "@gluestack-ui/themed";
+import { Box, HStack, Pressable, Text } from "@gluestack-ui/themed";
 import { useDispatch, } from "react-redux";
 import { AntDesign } from '@expo/vector-icons';
 import { decreaseQuantity, increaseQuantity, removeProductFromCart } from "@/redux/cart/actions";
-import { numberForMoney } from "@/services/numberForMoney";
 import theme from "@/style/theme";
 import FormattedMoney from "@/components/FormattedMoney";
+import { useState } from "react";
 
 
 export default function CartItem({ product }) {
@@ -27,7 +27,7 @@ export default function CartItem({ product }) {
             alignItems="center"
             justifyContent="space-between"
             marginBottom={4}
-            borderRadius={5}
+            borderRadius={8}
             backgroundColor={theme.colorLight}
             borderWidth={1}
             borderColor={theme.colorText}

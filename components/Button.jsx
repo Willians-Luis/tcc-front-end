@@ -1,3 +1,4 @@
+import theme from '@/style/theme';
 import { ButtonText, Button as GlueButton } from '@gluestack-ui/themed';
 
 export default function Button({ title, color, ...rest }) {
@@ -8,9 +9,9 @@ export default function Button({ title, color, ...rest }) {
             action="positive"
             isDisabled={false}
             isFocusVisible={false}
-            $active-bgColor='black'
+            $active-bgColor={theme.colorDarkLight}
             height={35}
-            
+            borderRadius={8}
             {...rest}
         >
             <ButtonText color={color}>

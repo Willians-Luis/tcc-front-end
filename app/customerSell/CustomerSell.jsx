@@ -23,10 +23,12 @@ export default function CustomerSell() {
 
                 <CategoryFilter onPress={handleCategory} />
 
-                <Container title="Produtos" icon="list" gap={4} borderBottomWidth={0} px={8}>
+                {/* <Container title="Produtos" icon="list" gap={4} borderBottomWidth={0} px={8}>
                     <ProductListSell data={data}/>
-                </Container>
-                
+                </Container> */}
+
+                <ProductListSell data={data}/>
+
                 <Container title="Carrinho" borderBottomWidth={0} pb={2}>
                     <ShoppingCart customer={customer} />
                 </Container>

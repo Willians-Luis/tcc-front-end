@@ -15,7 +15,7 @@ export function InputCustom({
     onChangeText, 
     value,
     placeholder, 
-    color=theme.colorLight,
+    color=theme.colorDark,
     placeholderTextColor=theme.colorDarkLight, 
     ...rest 
 }) {
@@ -26,8 +26,10 @@ export function InputCustom({
                 size="lg" 
                 width={"100%"}
                 isInvalid={invalid} 
+                borderRadius={8}
                 borderColor={theme.colorDarkLight}
                 $invalid-borderColor="red"    
+                backgroundColor={theme.colorLight}
                 {...rest} 
             >
                 <InputField 

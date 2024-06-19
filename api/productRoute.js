@@ -33,6 +33,19 @@ export const apiPutProduct = async (id, produto, token) => {
     }
 }
 
+export const apiUpdateStock = async (id, value, token) => {
+    try {
+        const response = await axios.put(url(`produto/stock/${id}/${value}`), {}, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        return response.data
+    } catch (error) {
+        return false
+    }
+}
+
 export const apiGetAllProduto = async (token) => {
     try {
         const { data } = await axios.get(url('produto'), {

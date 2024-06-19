@@ -1,4 +1,4 @@
-import { Center, Heading, HStack, Text, VStack } from "@gluestack-ui/themed";
+import { Box, Center, Heading, HStack, Text, VStack } from "@gluestack-ui/themed";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useDispatch } from "react-redux";
@@ -11,6 +11,7 @@ import Button from "@/components/Button";
 import theme from "@/style/theme";
 import { useNavigation } from "expo-router";
 import { Image } from "@gluestack-ui/themed";
+import { AntDesign, Fontisto } from "@expo/vector-icons";
 
 export default function Login() {
     const navigation = useNavigation()
@@ -41,7 +42,7 @@ export default function Login() {
             <Image
                 width={300}
                 height={100}
-                source={ require("../assets/images/logopng.png")}
+                source={require("../assets/images/logopng.png")}
                 alt="Logo da empresa"
             />
             <VStack
@@ -52,44 +53,61 @@ export default function Login() {
             >
                 <Center gap={20} flex={1}>
 
-                    <Controller
-                        control={control}
-                        name="email"
-                        defaultValue="admin@admin.com"
-                        render={({ field: { value, onChange } }) => (
-                            <Input
-                                placeholder={"Email"}
-                                placeholderTextColor={theme.colorDarkLight}
-                                ErrorMessage={errors.email?.message}
-                                onChangeText={onChange}
-                                value={value}
-                                height={50}
-                                width={350}
-                                borderWidth={1}
-                                borderColor={theme.colorDarkLight}
-                            />
-                        )}
-                    />
+                    <HStack alignItems="center" justifyContent="center">
+                        <Controller
+                            control={control}
+                            name="email"
+                            defaultValue="admin@admin.com"
+                            render={({ field: { /*value,*/ onChange } }) => (
+                                <Input
+                                    placeholder={"Email"}
+                                    placeholderTextColor={theme.colorDarkLight}
+                                    ErrorMessage={errors.email?.message}
+                                    onChangeText={onChange}
+                                    //value={value}
+                                    height={50}
+                                    width={310}
+                                    borderWidth={0}
+                                    borderBottomWidth={1}
+                                    borderColor={theme.colorDarkLight}
+                                    borderRadius={0}
+                                />
+                            )}
+                        />
+                        <Box borderBottomWidth={1} height={50} 
+                        borderColor={theme.colorDarkLight} justifyContent="center" pr={16}>
+                            <Fontisto name="email" size={22} color={theme.colorDarkLight} />
+                        </Box>
 
-                    <Controller
-                        control={control}
-                        name="senha"
-                        defaultValue="123admin"
-                        render={({ field: { value, onChange } }) => (
-                            <Input
-                                placeholder="Senha"
-                                placeholderTextColor={theme.colorDarkLight}
-                                ErrorMessage={errors.senha?.message}
-                                onChangeText={onChange}
-                                value={value}
-                                type='password'
-                                height={50}
-                                width={350}
-                                borderWidth={1}
-                                borderColor={theme.colorDarkLight}
-                            />
-                        )}
-                    />
+                    </HStack>
+
+                    <HStack>
+                        <Controller
+                            control={control}
+                            name="senha"
+                            defaultValue="123admin"
+                            render={({ field: { /*value,*/ onChange } }) => (
+                                <Input
+                                    placeholder="Senha"
+                                    placeholderTextColor={theme.colorDarkLight}
+                                    ErrorMessage={errors.senha?.message}
+                                    onChangeText={onChange}
+                                    //value={value}
+                                    type='password'
+                                    height={50}
+                                    width={310}
+                                    borderWidth={0}
+                                    borderBottomWidth={1}
+                                    borderColor={theme.colorDarkLight}
+                                    borderRadius={0}
+                                />
+                            )}
+                        />
+                        <Box borderBottomWidth={1} height={50} 
+                        borderColor={theme.colorDarkLight} justifyContent="center" pr={16}>
+                            <AntDesign name="lock" size={22} color={theme.colorDarkLight} />
+                        </Box>
+                    </HStack>
 
                     <Button
                         title="Login"

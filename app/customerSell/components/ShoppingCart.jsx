@@ -57,7 +57,7 @@ export default function ShoppingCart({ customer }) {
     }, [])
 
     return (
-        <Box width="$full" borderRadius={10} px={8} mt={10} pb={0}>
+        <Box width="$full" borderRadius={8} px={8} mt={10} pb={0}>
             <Box height={135}>
                 {products?.length > 0
                     ? <FlatList
@@ -78,7 +78,7 @@ export default function ShoppingCart({ customer }) {
 
             </Box>
             <Box
-                borderRadius={5}
+                borderRadius={8}
                 flexDirection="row"
                 justifyContent="space-between"
                 alignItems="center"
@@ -106,6 +106,7 @@ export default function ShoppingCart({ customer }) {
                     height={35}
                     bgColor={theme.colorDark}
                     color={theme.colorLight}
+                    borderRadius={8}
                 />
             </Box>
 

@@ -57,9 +57,9 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
                 </Box>
             </Box>
             <Pressable
-                p={3}
+                p={4}
                 //borderWidth={1}
-                borderRadius={5}
+                borderRadius={8}
                 //borderColor={theme.colorDark}
                 backgroundColor={theme.colorDark}
                 alignItems="center"
