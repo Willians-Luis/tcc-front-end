@@ -32,13 +32,13 @@ export default function CustomerDetails() {
             {data
                 ? <Box flex={1} py={16} gap={16}>
                     <Container title="Cliente" icon="user" borderBottomWidth={0} pb={7}>
-                        <Box flexDirection="row" justifyContent="space-between" px={16} mb={10}>
+                        <Box flexDirection="row" justifyContent="space-between" px={8} mb={10}>
                             <Text color={theme.colorText}>
                                 {data.nome}
                             </Text>
 
                             <HStack alignItems="center" gap={4}>
-                                {data.telefone && <Feather name="phone" size={14} color={theme.colorDarkLight} />}
+                                {/* {data.telefone && <Feather name="phone" size={14} color={theme.colorDarkLight} />} */}
                                 {data.telefone && <Text color={theme.colorText2} fontSize={14}>{data.telefone}</Text>}
                             </HStack>
                             <Box flexDirection="row" gap={20} >
@@ -48,17 +48,16 @@ export default function CustomerDetails() {
                         </Box>
                     </Container>
 
+                    <Container title="Vendas">
+                        <SalesList data={data.vendas} />
+                    </Container>
+
                     <Box px={8}>
                         <RoundButton
                             title="Adicionar venda"
                             onPress={() => { navigation.navigate("customerSell/CustomerSell") }}
                         />
                     </Box>
-
-
-                    <Container title="Vendas">
-                        <SalesList data={data.vendas} />
-                    </Container>
 
                     <Container title="Debito total" icon="dollar-sign" borderBottomWidth={0} pb={12}>
                         <SalesPayments customer={data} />

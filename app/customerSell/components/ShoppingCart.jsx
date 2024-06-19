@@ -72,7 +72,7 @@ export default function ShoppingCart({ customer }) {
                         justifyContent="center"
                         alignItems="center"
                     >
-                        <Feather name="list" size={24} color="black" />
+                        <Feather name="shopping-cart" size={24} color={theme.colorDarkLight} />
                     </Box>
                 }
 

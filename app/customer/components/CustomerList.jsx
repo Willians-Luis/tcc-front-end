@@ -1,6 +1,6 @@
-import { Box, Card, FlatList, HStack, Text } from "@gluestack-ui/themed"
+import { Box, Card, Center, FlatList, HStack, Text } from "@gluestack-ui/themed"
 import ItemCustomerList from "./ItemCustomerList"
-import { Feather, FontAwesome, FontAwesome5 } from "@expo/vector-icons"
+import { Feather } from "@expo/vector-icons"
 import theme from "@/style/theme"
 
 export default function CustomerList({ data, onPress }) {
@@ -26,10 +26,11 @@ export default function CustomerList({ data, onPress }) {
                     renderItem={({ item }) => (
                         <ItemCustomerList item={item} onPress={onPress} />
                     )}
+                    keyExtractor={(item) => item.id}
                 />
-                : <Box>
+                : <Center flex={1}>
                     <Text>Nenhum registro encontrado!</Text>
-                </Box>
+                </Center>
             }
         </Card>
     )

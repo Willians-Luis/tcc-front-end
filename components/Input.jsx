@@ -7,6 +7,7 @@ import {
     InputField
 } from '@gluestack-ui/themed';
 import theme from '@/style/theme';
+import { AntDesign, Fontisto } from '@expo/vector-icons';
 
 export function Input({ 
     ErrorMessage = null, 
@@ -16,7 +17,6 @@ export function Input({
     keyboardType, 
     onChangeText,
     type = "text",
-    //value = null, 
     ...rest 
 }) {
     const invalid = !!ErrorMessage || isInvalid
@@ -29,6 +29,8 @@ export function Input({
                 isInvalid={invalid} 
                 $invalid-borderColor="#f00"   
                 borderColor={theme.colorLight}
+                alignItems="center"
+                pr={16}
                 {...rest} 
             >
                 <InputField 
@@ -38,8 +40,9 @@ export function Input({
                     keyboardType={keyboardType}
                     type={type}
                     onChangeText={onChangeText}
-                    //value={value}
                 />
+                {type === "text" && <Fontisto name="email" size={22} color={theme.colorDarkLight} />}
+                {type === "password" && <AntDesign name="lock" size={22} color={theme.colorDarkLight} />}
             </GlueInput>
             <FormControlError>
                 <FormControlErrorText color='#f00'>

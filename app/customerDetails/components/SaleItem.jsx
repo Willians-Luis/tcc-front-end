@@ -17,8 +17,7 @@ export default function SaleItem({ item, handleSaleDelete, handleSalePayment }) 
         <HStack
             justifyContent="space-between"
             alignItems="center"
-            px={10}
-            py={8}
+            p={10}
             borderBottomWidth={2}
             borderColor={theme.backgroundColor}
         >

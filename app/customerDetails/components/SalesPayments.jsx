@@ -43,7 +43,12 @@ export default function SalesPayments({ customer }) {
             px={20}
             mb={12}
         >
-            <FormattedMoney value={valueSales} />
+            <FormattedMoney 
+                value={valueSales} 
+                fontSize={18} 
+                fontWeight="bold" 
+                color={theme.colorDark}
+            />
             <Pressable
                 py={8}
                 px={16}

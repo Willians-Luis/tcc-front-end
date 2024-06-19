@@ -64,9 +64,8 @@ export default function Login() {
                                     placeholderTextColor={theme.colorDarkLight}
                                     ErrorMessage={errors.email?.message}
                                     onChangeText={onChange}
-                                    //value={value}
                                     height={50}
-                                    width={310}
+                                    width={350}
                                     borderWidth={0}
                                     borderBottomWidth={1}
                                     borderColor={theme.colorDarkLight}
@@ -74,10 +73,6 @@ export default function Login() {
                                 />
                             )}
                         />
-                        <Box borderBottomWidth={1} height={50} 
-                        borderColor={theme.colorDarkLight} justifyContent="center" pr={16}>
-                            <Fontisto name="email" size={22} color={theme.colorDarkLight} />
-                        </Box>
 
                     </HStack>
 
@@ -95,7 +90,7 @@ export default function Login() {
                                     //value={value}
                                     type='password'
                                     height={50}
-                                    width={310}
+                                    width={350}
                                     borderWidth={0}
                                     borderBottomWidth={1}
                                     borderColor={theme.colorDarkLight}
@@ -103,10 +98,6 @@ export default function Login() {
                                 />
                             )}
                         />
-                        <Box borderBottomWidth={1} height={50} 
-                        borderColor={theme.colorDarkLight} justifyContent="center" pr={16}>
-                            <AntDesign name="lock" size={22} color={theme.colorDarkLight} />
-                        </Box>
                     </HStack>
 
                     <Button
