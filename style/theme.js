@@ -13,7 +13,7 @@ export default theme = {
 // export default theme = {
 //     colorLight:"#fff",
 //     colorDarkLight: "#fcba03",
-//     colorDark: "#5e1085",
+//     colorDark: "#0560a6",
 //     colorDark2: "#fcba03",
 //     backgroundColor: "#ebebeb",  
 //     colorText: "#000",

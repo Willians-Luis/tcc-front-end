@@ -5,6 +5,7 @@ import { useNavigation } from "expo-router";
 import Footer from "@/components/Footer";
 import CardCustom from "./components/CardCustom";
 import theme from "@/style/theme";
+import Banner from "./components/Banner";
 
 export default function Home() {
     const navigation = useNavigation()
@@ -12,6 +13,7 @@ export default function Home() {
 
     return (
         <Box flex={1} p={16} gap={16}>
+            <Banner />
             <HStack width={"100%"} justifyContent="space-between">
                 <CardCustom
                     onPress={() => navigation.navigate("product/Product")}

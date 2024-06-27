@@ -7,7 +7,7 @@ import { Card, Heading, Pressable } from "@gluestack-ui/themed";
 export default function CardCustom({ onPress, title, content, color, bgColor }) {
     return (
         <Card w={"47%"} bgColor={bgColor} p={2}>
-            <Box w={"100%"} p={8} borderWidth={1} borderColor={theme.colorDarkLight} borderRadius={5}>
+            <Box w={"100%"} p={8} borderRadius={5}>
                 <Pressable onPress={onPress} width={"100%"}>
 
                     <HStack width={"100%"} justifyContent="space-between" alignItems="center" gap={20}>

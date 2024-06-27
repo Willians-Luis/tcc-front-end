@@ -40,8 +40,8 @@ export default function Product() {
                             py={4} 
                             px={8}
                         >
-                            <AntDesign name="plus" size={14} color={theme.colorDarkLight} />
-                            <Text color={theme.colorDarkLight}>Adicionar</Text>
+                            <AntDesign name="plus" size={14} color={theme.colorDark} />
+                            <Text color={theme.colorDark}>Adicionar</Text>
                         </Pressable>
                     </HStack>
                 </HStack>
@@ -49,14 +49,14 @@ export default function Product() {
 
             <CategoryFilter onPress={handleCategory} />
 
-            <ProductList data={data} />
+            <ProductList data={data} navigation={() => { navigation.navigate("productAdd/ProductAdd") }}/>
 
-            <Box px={8}>
+            {/* <Box px={8}>
                 <RoundButton
                     title="Adicionar produto"
                     onPress={() => { navigation.navigate("productAdd/ProductAdd") }}
                 />
-            </Box>
+            </Box> */}
             <Footer />
         </VStack>
     )

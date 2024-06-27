@@ -70,10 +70,9 @@ export default function ProductItem({ item }) {
     }, [handleUpdateStock])
 
     return (
-        <HStack width={"100%"}>
+        <HStack width={"100%"} px={8} my="$1" alignItems="center">
             <Pressable
                 onPress={handleVisibility}
-                my="$1"
                 borderRadius={8}
                 padding={6}
                 flexDirection="row"
@@ -99,7 +98,9 @@ export default function ProductItem({ item }) {
                     </Box>
                 </Box>
             </Pressable>
-            <VStack width={"23.8%"} display={buttonSave ? "flex" : "none"} alignItems="center" justifyContent="space-between" mx={2}>
+
+            <VStack width={"23.8%"} display={buttonSave ? "flex" : "none"} 
+            alignItems="center" justifyContent="space-between" mx={2} gap={8}>
                 <Pressable 
                     onPress={handleSaveUpdateStock}
                     borderRadius={8}
@@ -122,15 +123,16 @@ export default function ProductItem({ item }) {
                 </Pressable>
             </VStack>
 
-            <HStack flex={1} m="$1" borderRadius={8} alignItems="center" p={2}
+            <HStack flex={1} m="$1" borderRadius={8} alignItems="center" p={2} h={"100%"}
                 justifyContent="space-between" backgroundColor={theme.colorDark}>
 
                 <Pressable
                     onPress={handleDecreaseStock}
                     onLongPress={handleLongDecreaseStock}
-                    height={"100%"}
-                    width={"25%"}
-                    pl={5} pt={10}
+                    height={40}
+                    width={20}
+                    alignItems="center"
+                    justifyContent="center"
                     borderRadius={8}
                     disabled={valueStock < 1}
                     $active-bgColor={theme.colorDarkLight}
@@ -144,9 +146,10 @@ export default function ProductItem({ item }) {
                 <Pressable
                     onPress={handleIncreaseStock}
                     onLongPress={handleLongIncreaseStock}
-                    height={"100%"}
-                    width={"25%"}
-                    pl={5} pt={10}
+                    height={40}
+                    width={20}
+                    alignItems="center"
+                    justifyContent="center"
                     borderRadius={8}
                     $active-bgColor={theme.colorDarkLight}
                 >

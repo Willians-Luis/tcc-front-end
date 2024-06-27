@@ -1,11 +1,11 @@
-import { Box, Card, Center, FlatList, HStack, Text } from "@gluestack-ui/themed"
+import { Box, Card, Center, FlatList, HStack, Pressable, Text } from "@gluestack-ui/themed"
 import ItemCustomerList from "./ItemCustomerList"
-import { Feather } from "@expo/vector-icons"
+import { AntDesign, Feather } from "@expo/vector-icons"
 import theme from "@/style/theme"
 
-export default function CustomerList({ data, onPress }) {
+export default function CustomerList({ data, onPress, navigation }) {
     return (
-        <Card height={"70.5%"} pt={0} px={0} size="md" >
+        <Card height={"78%"} p={0} borderRadius={8}>
             <HStack py={14} px={8} justifyContent="space-between" borderBottomWidth={2} borderColor={theme.backgroundColor}>
 
                 <HStack gap={4} alignItems="center">
@@ -32,6 +32,25 @@ export default function CustomerList({ data, onPress }) {
                     <Text>Nenhum registro encontrado!</Text>
                 </Center>
             }
+            <Pressable
+                onPress={navigation}
+                flexDirection="row"
+                width={"100%"}
+                alignItems="center"
+                justifyContent="space-between"
+                px={8}
+                py={12}
+                borderTopWidth={2}
+                borderColor={theme.backgroundColor}
+            >
+                <Text 
+                    color={theme.colorDark}
+                    fontSize={18} 
+                    //fontWeight="bold"
+                >Adicionar cliente</Text>
+                <AntDesign name="right" size={14} color={theme.colorDark} />
+            </Pressable>
+
         </Card>
     )
 }

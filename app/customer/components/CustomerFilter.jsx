@@ -23,15 +23,15 @@ export default function CustomerFilter({value, onChageText, handleOrder}) {
                 width={"85%"}
                 alignItems="center"
                 pl={4}
-                borderColor={theme.colorDarkLight}
+                borderColor={theme.colorDark}
                 borderRadius={8}
             >
-                <Feather name="search" size={18} color={theme.colorDarkLight} />
+                <Feather name="search" size={18} color={theme.colorDark} />
                 <InputField
                     onChangeText={onChageText}
                     value={value}
                     placeholder="Pesquise um cliente"
-                    placeholderTextColor={theme.colorDarkLight}
+                    placeholderTextColor={theme.colorDark}
                 />
             </Input>
             
@@ -43,7 +43,7 @@ export default function CustomerFilter({value, onChageText, handleOrder}) {
                 <MaterialCommunityIcons 
                     name="order-alphabetical-ascending" 
                     size={30} 
-                    color={theme.colorDarkLight}
+                    color={theme.colorDark}
                 />
             </Pressable>
         </Card>

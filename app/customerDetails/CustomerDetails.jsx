@@ -1,4 +1,4 @@
-import { Box, HStack, Text } from "@gluestack-ui/themed";
+import { Box, Card, HStack, Text } from "@gluestack-ui/themed";
 import SalesList from "./components/SalesList";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -31,33 +31,22 @@ export default function CustomerDetails() {
         <Box flex={1} backgroundColor={theme.backgroundColor}>
             {data
                 ? <Box flex={1} py={16} gap={16}>
-                    <Container title="Cliente" icon="user" borderBottomWidth={0} pb={7}>
-                        <Box flexDirection="row" justifyContent="space-between" px={8} mb={10}>
-                            <Text color={theme.colorText}>
-                                {data.nome}
-                            </Text>
-
-                            <HStack alignItems="center" gap={4}>
-                                {/* {data.telefone && <Feather name="phone" size={14} color={theme.colorDarkLight} />} */}
-                                {data.telefone && <Text color={theme.colorText2} fontSize={14}>{data.telefone}</Text>}
-                            </HStack>
-                            <Box flexDirection="row" gap={20} >
-                                <Feather name="edit" size={20} color={theme.colorDark} />
-                                <AntDesign name="delete" size={20} color={theme.colorDark} />
-                            </Box>
-                        </Box>
-                    </Container>
-
-                    <Container title="Vendas">
-                        <SalesList data={data.vendas} />
-                    </Container>
-
-                    <Box px={8}>
-                        <RoundButton
-                            title="Adicionar venda"
-                            onPress={() => { navigation.navigate("customerSell/CustomerSell") }}
-                        />
-                    </Box>
+                    <Card flexDirection="row" mx={8} px={8} justifyContent="space-between" borderRadius={8}>
+                        <HStack alignItems="center" gap={4}>
+                            <Feather name="user" size={18} color={theme.colorDarkLight} />
+                            <Text fontWeight="bold" color={theme.colorText}>{data.nome}</Text>
+                        </HStack>
+                        <HStack alignItems="center" gap={4}>
+                            {data.telefone && <Feather name="phone" size={16} color={theme.colorDarkLight} />}
+                            {data.telefone && <Text color={theme.colorText2} fontSize={14}>{data.telefone}</Text>}
+                        </HStack>
+                        <HStack gap={20} >
+                            <Feather name="edit" size={20} color={theme.colorDark} />
+                            <AntDesign name="delete" size={20} color={theme.colorDark} />
+                        </HStack>
+                    </Card>
+                    
+                    <SalesList data={data.vendas} navigation={() => { navigation.navigate("customerSell/CustomerSell") }}/>
 
                     <Container title="Debito total" icon="dollar-sign" borderBottomWidth={0} pb={12}>
                         <SalesPayments customer={data} />

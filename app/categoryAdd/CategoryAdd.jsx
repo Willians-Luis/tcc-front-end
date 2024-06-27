@@ -70,7 +70,9 @@ export default function CategoryAdd() {
                         title="Cancelar"
                         width={150}
                         color={theme.colorDark}
-                        backgroundColor={theme.colorLight}
+                        backgroundColor={theme.backgroundColor}
+                        borderWidth={2}
+                        borderColor={theme.colorDark}
                         onPress={() => navigation.navigate("product/Product")}
                     />
                     <Button

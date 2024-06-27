@@ -29,7 +29,7 @@ export function InputCustom({
                 borderRadius={8}
                 borderColor={theme.colorDarkLight}
                 $invalid-borderColor="red"    
-                backgroundColor={theme.colorLight}
+                //backgroundColor={theme.colorLight}
                 {...rest} 
             >
                 <InputField 

@@ -16,7 +16,7 @@ const Item = ({ item, handleCategory, isClicked}) => {
                 borderRadius={8}
                 borderWidth={2}
                 borderColor={theme.colorDark}
-                backgroundColor={isClicked === item.id ? theme.colorLight : theme.colorDark}
+                backgroundColor={isClicked === item.id ? theme.backgroundColor : theme.colorDark}
             >
                 <Text fontSize="$lg" color={isClicked === item.id ? theme.colorDark : theme.colorLight}>
                     {item.nome}

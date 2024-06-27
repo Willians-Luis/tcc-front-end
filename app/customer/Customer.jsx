@@ -71,12 +71,13 @@ export default function Customer() {
                     <CustomerList
                         data={data}
                         onPress={(item) => handleNavigate(item)}
+                        navigation={() => navigation.navigate("customerAdd/CustomerAdd")}
                     />
 
-                    <RoundButton
+                    {/* <RoundButton
                         onPress={() => navigation.navigate("customerAdd/CustomerAdd")}
                         title="Adicionar cliente"
-                    />
+                    /> */}
 
                     <Footer />
                 </Box>

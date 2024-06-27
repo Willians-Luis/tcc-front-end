@@ -11,7 +11,6 @@ import Button from "@/components/Button";
 import theme from "@/style/theme";
 import { useNavigation } from "expo-router";
 import { Image } from "@gluestack-ui/themed";
-import { AntDesign, Fontisto } from "@expo/vector-icons";
 
 export default function Login() {
     const navigation = useNavigation()

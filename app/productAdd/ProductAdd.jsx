@@ -162,7 +162,9 @@ export default function ProductAdd() {
                         title="Cancelar"
                         width={"46%"}
                         color={theme.colorDark}
-                        backgroundColor={theme.colorLight}
+                        backgroundColor={theme.backgroundColor}
+                        borderWidth={2}
+                        borderColor={theme.colorDark}
                         onPress={() => navigation.navigate("product/Product")}
                         borderRadius={8}
                     />

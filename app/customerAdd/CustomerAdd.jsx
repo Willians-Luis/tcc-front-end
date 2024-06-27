@@ -34,7 +34,7 @@ export default function CustomerAdd() {
 
     return (
         <VStack
-            backgroundColor={theme.backgroundColor}
+            backgroundColor={theme.colorLight}
             flex={1}
             padding={31}
         >
@@ -77,6 +77,8 @@ export default function CustomerAdd() {
                         width={150}
                         color={theme.colorDark}
                         backgroundColor={theme.colorLight}
+                        borderWidth={2}
+                        borderColor={theme.colorDark}
                         onPress={() => navigation.navigate("customer/Customer")}
                     />
                     <Button

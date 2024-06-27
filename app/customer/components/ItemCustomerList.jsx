@@ -14,7 +14,9 @@ export default function ItemCustomerList({ item, onPress }) {
             onPress={() => onPress(item)}
             flexDirection="row"
             justifyContent="space-between"
-            padding={14}
+            alignItems="center"
+            px={16}
+            py={11}
             borderBottomWidth={2}
             borderColor={theme.backgroundColor}
         >
@@ -29,16 +31,11 @@ export default function ItemCustomerList({ item, onPress }) {
 
                 </Box>
             </HStack>
-
-            <HStack alignItems="center" gap={20}>
-                <FormattedMoney
-                    value={valueSales}
-                    color={valueSales > 0 ? "#f00" : theme.colorText2}
-                    fontSize={15}
-                />
-                <AntDesign name="right" size={14} color={theme.colorDarkLight} />
-            </HStack>
-
+            <FormattedMoney
+                value={valueSales}
+                color={valueSales > 0 ? "#f00" : theme.colorText2}
+                fontSize={15}
+            />
         </Pressable>
     )
 }
